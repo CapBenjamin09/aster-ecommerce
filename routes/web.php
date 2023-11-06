@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +18,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/register', function () {
     return view('auth.clients.register');
 });
+
+//Route::get('/category', [CategoryController::class, 'index'])->name('category.index');
+//Route::get('/category/create', [CategoryController::class, 'create'])->name('category.create');
+
+Route::resource('/category', CategoryController::class);
+
+Route::resource('/product', ProductController::class);
