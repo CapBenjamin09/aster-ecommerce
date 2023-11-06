@@ -22,6 +22,6 @@
     }
 @endphp
 
-<button {{ $attributes->merge(['class' => $classes, 'type' => 'button']) }}>
+<button {{ $attributes->merge(['class' => $classes]) }}>
     {{ $slot }}
 </button>

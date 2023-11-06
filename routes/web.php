@@ -1,5 +1,10 @@
 <?php
 
+
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\SessionController;
+use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +18,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/register', function () {
-    return view('auth.clients.register');
-});
+//Route::get('/register', function () {return view('auth.clients.register');});
+Route::get('/dashboard', function () {return view('dashboard');})->name('dashboard');
+Route::get('/home', function () {return view('client.home');})->name('home');
+
+//RUTEO DE REGISTRO - CLIENTES
+Route::get('/register', [RegisterController::class, 'index'])->name('register.index');
+Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
+
+//RUTEO PARA INICIO DE SESIÓN
+Route::get('/login', [SessionController::class, 'index'])->name('session.index');
+Route::post('/login', [SessionController::class, 'store'])->name('session.store');
+
+Route::post('/logout', [LogoutController::class, 'store'])->name('logout');
+
+//CRUD USUARIOS - ADMINISTRADOR
+Route::resource('users', UserController::class);
+
