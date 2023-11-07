@@ -17,7 +17,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::paginate();
+        $products = Product::paginate(10);
         return view('product.index', compact('products'));
     }
 
@@ -39,7 +39,7 @@ class ProductController extends Controller
 
         $image = $request->file('image_path');
         $nameImage = Str::uuid().'.'. $image->extension();
-        $imageServer = Image::make($image)->fit(200, 200);
+        $imageServer = Image::make($image)->fit(50, 50);
         $imagePath = public_path('products').'/'.$nameImage;
         $imageServer->save($imagePath);
         $data['image_path'] = 'products/'. $nameImage;
@@ -74,11 +74,13 @@ class ProductController extends Controller
 
         if ($request->file('image_path')) {
             $image_path = public_path($product->image_path);
-            unlink($image_path);
+            if (file_exists($image_path)) {
+                unlink($image_path);
+            }
             $image = $request->file('image_path');
             $nameImage = Str::uuid().'.'. $image->extension();
 
-            $imageServer = Image::make($image)->fit(200, 200);
+            $imageServer = Image::make($image)->fit(50, 50);
             $imagePath = public_path('products').'/'.$nameImage;
             $imageServer->save($imagePath);
             $data['image_path'] = 'products/'. $nameImage;

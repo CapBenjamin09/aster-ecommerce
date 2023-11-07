@@ -63,6 +63,7 @@
             @endforeach
             </tbody>
         </table>
+        {{ $products->links() }}
     </div>
 
 </x-layouts.admin-layout>
