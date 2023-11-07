@@ -94,6 +94,6 @@ class CategoryController extends Controller
             unlink($image_path);
         }
 
-        return redirect()->route('category.index');
+        return back()->with('eliminar', 'El usuario ha sido eliminado.');
     }
 }
