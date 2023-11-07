@@ -26,9 +26,9 @@ class SessionController extends Controller
 
         auth()->attempt($request->only('email', 'password'));
 
-        if ('admin' == auth()->user()->role){
-            return redirect()->route('dashboard');
-        }
+//        if ('admin' == auth()->user()->role){
+//            return redirect()->route('dashboard');
+//        }
 
         return redirect()->route('home');
     }

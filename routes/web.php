@@ -20,27 +20,31 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::get('/register', function () {return view('auth.clients.register');});
-Route::get('/dashboard', function () {return view('dashboard');})->name('dashboard');
-Route::get('/home', function () {return view('client.home');})->name('home');
+Route::middleware('guest')->group( function () {
+    //RUTEO DE REGISTRO - CLIENTES
+    Route::get('/register', [RegisterController::class, 'index'])->name('register.index');
+    Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
 
-//RUTEO DE REGISTRO - CLIENTES
-Route::get('/register', [RegisterController::class, 'index'])->name('register.index');
-Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
+    //RUTEO PARA INICIO DE SESIÓN
+    Route::get('/login', [SessionController::class, 'index'])->name('session.index');
+    Route::post('/login', [SessionController::class, 'store'])->name('session.store');
+});
 
-//RUTEO PARA INICIO DE SESIÓN
-Route::get('/login', [SessionController::class, 'index'])->name('session.index');
-Route::post('/login', [SessionController::class, 'store'])->name('session.store');
+Route::middleware(['auth', 'admin'])->group( function () {
+    //VISTA PRINCIPAL DE ADMINISTRADOR
+    Route::get('/dashboard', function () {return view('dashboard');})->name('dashboard');
+    //CRUD CATEGORIAS - ADMINISTRADOR
+    Route::resource('/category', CategoryController::class);
+    //CRUD PRODUCTOS - ADMINISTRADOR
+    Route::resource('/product', ProductController::class);
+    //CRUD USUARIOS - ADMINISTRADOR
+    Route::resource('/users', UserController::class);
+    //LOGOUT
+    Route::post('/logout', [LogoutController::class, 'store'])->name('logout');
+});
 
-Route::post('/logout', [LogoutController::class, 'store'])->name('logout');
-
-//CRUD USUARIOS - ADMINISTRADOR
-Route::resource('users', UserController::class);
-
-
-//Route::get('/category', [CategoryController::class, 'index'])->name('category.index');
-//Route::get('/category/create', [CategoryController::class, 'create'])->name('category.create');
-
-Route::resource('/category', CategoryController::class);
-
-Route::resource('/product', ProductController::class);
+Route::middleware(['auth', 'client'])->group( function () {
+    Route::get('/home', function () {return view('client.home');})->name('home');
+    //LOGOUT
+    Route::post('/logout', [LogoutController::class, 'store'])->name('logout');
+});

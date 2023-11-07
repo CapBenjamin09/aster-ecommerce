@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class Role
+class Client
 {
     /**
      * Handle an incoming request.
@@ -15,14 +15,10 @@ class Role
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (auth()->user()->role == 'admin') {
+        if (auth()->user()->role == 'client') {
             return $next($request);
-        } elseif (auth()->user()->role == 'client') {
-            return $next($request);
-        } else {
-            return redirect()->route('login');
         }
 
-
+        return redirect()->route('session.index');
     }
 }
