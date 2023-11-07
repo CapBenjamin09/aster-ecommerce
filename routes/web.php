@@ -1,9 +1,5 @@
 <?php
 
-<<<<<<<<< Temporary merge branch 1
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\ProductController;
-=========
 
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionController;
@@ -24,18 +20,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-<<<<<<<<< Temporary merge branch 1
-Route::get('/register', function () {
-    return view('auth.clients.register');
-});
-
-//Route::get('/category', [CategoryController::class, 'index'])->name('category.index');
-//Route::get('/category/create', [CategoryController::class, 'create'])->name('category.create');
-
-Route::resource('/category', CategoryController::class);
-
-Route::resource('/product', ProductController::class);
-=========
 //Route::get('/register', function () {return view('auth.clients.register');});
 Route::get('/dashboard', function () {return view('dashboard');})->name('dashboard');
 Route::get('/home', function () {return view('client.home');})->name('home');
