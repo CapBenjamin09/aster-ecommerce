@@ -9,17 +9,31 @@
                 <div class="flex justify-center lg:justify-start mt-2 mb-2 px-32">
                     <form action="{{ route('session.store') }}" method="POST">
                         @csrf
+
                         <h2 class="text-3xl mb-2 font-semibold text-gray-800 md:text-4xl">Iniciar Sesión
                         </h2>
+
+                        @if(session('status'))
+                            <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                                <span class="font-medium">Alert!</span> {{session('status')}}
+                            </div>
+                        @endif
+
                         <div class="mb-6">
                             <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                                 Correo electrónico</label>
                             <x-input-text type="email" id="email" name="email" placeholder="name@company.com" />
+                            @error('email')
+                            <p class="text-red-700 my-1 rounded-lg text-sm">{{ $message }}</p>
+                            @enderror
                         </div>
                         <div class="mb-6">
                             <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                                 Contraseña</label>
                             <x-input-text type="password" id="password" name="password" placeholder="••••••••" />
+                            @error('email')
+                            <p class="text-red-700 my-1 rounded-lg text-sm">{{ $message }}</p>
+                            @enderror
                         </div>
                         <div class="flex items-start mb-6">
                             <div class="flex items-center h-5">

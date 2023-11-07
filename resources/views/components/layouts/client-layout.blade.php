@@ -24,6 +24,10 @@
         {{ $slot }}
     </section>
 
+    <section>
+        <x-layouts.footer-client/>
+    </section>
+
 </main>
 
 </body>

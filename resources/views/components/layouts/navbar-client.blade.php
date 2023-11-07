@@ -36,7 +36,7 @@
                 class="mb-4 ml-2 mr-5 mt-3 flex items-center text-neutral-900 hover:text-neutral-900 focus:text-neutral-900 lg:mb-0 lg:mt-0"
                 href="#">
                 <img
-                    src="https://tecdn.b-cdn.net/img/logo/te-transparent-noshadows.webp"
+                    src="{{ asset('') }}"
                     style="height: 15px"
                     alt="TE Logo"
                     loading="lazy" />
@@ -49,7 +49,7 @@
                     <!-- Dashboard link -->
                     <a
                         class="text-white transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none lg:px-2 [&.active]:text-black/90"
-                        href="#"
+                        href="{{ route('home') }}"
                         data-te-nav-link-ref
                     >Dashboard</a>
                 </li>

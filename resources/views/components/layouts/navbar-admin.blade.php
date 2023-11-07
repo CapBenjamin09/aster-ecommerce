@@ -21,40 +21,36 @@
                 </a>
             </li>
             <li class="my-px">
-                <span class="flex font-medium text-sm text-white px-4 my-4 uppercase">Projects</span>
+                <span class="flex font-medium text-sm text-white px-4 my-4 uppercase">Trading</span>
             </li>
             <li class="my-px">
-                <a href="#"
+                <a href="{{ route('category.index') }}"
                    class="flex flex-row items-center h-12 px-4 rounded-lg text-white hover:bg-gray-700">
 						<span class="flex items-center justify-center text-lg text-white">
-							<svg fill="none"
-                                 stroke-linecap="round"
-                                 stroke-linejoin="round"
-                                 stroke-width="2"
-                                 viewBox="0 0 24 24"
-                                 stroke="currentColor"
-                                 class="h-6 w-6">
-								<path d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path>
-							</svg>
+							<svg class="w-6 h-6 text-gray-800 dark:text-white"
+                                 aria-hidden="true"
+                                 xmlns="http://www.w3.org/2000/svg"
+                                 fill="none"
+                                 viewBox="0 0 18 18">
+                            <path stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6.143 1H1.857A.857.857 0 0 0 1 1.857v4.286c0 .473.384.857.857.857h4.286A.857.857 0 0 0 7 6.143V1.857A.857.857 0 0 0 6.143 1Zm10 0h-4.286a.857.857 0 0 0-.857.857v4.286c0 .473.384.857.857.857h4.286A.857.857 0 0 0 17 6.143V1.857A.857.857 0 0 0 16.143 1Zm-10 10H1.857a.857.857 0 0 0-.857.857v4.286c0 .473.384.857.857.857h4.286A.857.857 0 0 0 7 16.143v-4.286A.857.857 0 0 0 6.143 11Zm10 0h-4.286a.857.857 0 0 0-.857.857v4.286c0 .473.384.857.857.857h4.286a.857.857 0 0 0 .857-.857v-4.286a.857.857 0 0 0-.857-.857Z"/>
+                            </svg>
 						</span>
-                    <span class="ml-3">Manager</span>
+                    <span class="ml-3">Categories</span>
                 </a>
             </li>
             <li class="my-px">
-                <a href="#"
+                <a href="{{ route('product.index') }}"
                    class="flex flex-row items-center h-12 px-4 rounded-lg text-white hover:bg-gray-700">
 						<span class="flex items-center justify-center text-lg text-white">
-							<svg fill="none"
-                                 stroke-linecap="round"
-                                 stroke-linejoin="round"
-                                 stroke-width="2"
-                                 viewBox="0 0 24 24"
-                                 stroke="currentColor"
-                                 class="h-6 w-6">
-								<path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
-							</svg>
+							<svg class="w-6 h-6 text-gray-800 dark:text-white"
+                                 aria-hidden="true"
+                                 xmlns="http://www.w3.org/2000/svg"
+                                 fill="none"
+                                 viewBox="0 0 18 20">
+                            <path stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5h4m-2 2V3M6 15a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm0 0h8m-8 0-1-4m9 4a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm.938-11H17l-2 7H5m0 0L3 4m0 0h2M3 4l-.792-3H1"/>
+                            </svg>
 						</span>
-                    <span class="ml-3">Tasks</span>
+                    <span class="ml-3">Products</span>
                 </a>
             </li>
             <li class="my-px">
@@ -96,7 +92,7 @@
                 <span class="flex font-medium text-sm text-white px-4 my-4 uppercase">Account</span>
             </li>
             <li class="my-px">
-                <a href="#"
+                <a href="{{ route('users.index') }}"
                    class="flex flex-row items-center h-12 px-4 rounded-lg text-white hover:bg-gray-700">
 						<span class="flex items-center justify-center text-lg text-white">
 							<svg fill="none"
@@ -109,7 +105,7 @@
 								<path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
 							</svg>
 						</span>
-                    <span class="ml-3">Profile</span>
+                    <span class="ml-3">Usuarios</span>
                 </a>
             </li>
             <li class="my-px">

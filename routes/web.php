@@ -5,6 +5,8 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +23,8 @@ use Illuminate\Support\Facades\Route;
 //Route::get('/register', function () {return view('auth.clients.register');});
 Route::get('/dashboard', function () {return view('dashboard');})->name('dashboard');
 Route::get('/home', function () {return view('client.home');})->name('home');
+Route::get('/home', function () {return view('client.home');})->name('home');
+
 
 //RUTEO DE REGISTRO - CLIENTES
 Route::get('/register', [RegisterController::class, 'index'])->name('register.index');
@@ -35,3 +39,9 @@ Route::post('/logout', [LogoutController::class, 'store'])->name('logout');
 //CRUD USUARIOS - ADMINISTRADOR
 Route::resource('users', UserController::class);
 
+
+//Route::get('/category', [CategoryController::class, 'index'])->name('category.index');
+//Route::get('/category/create', [CategoryController::class, 'create'])->name('category.create');
+
+Route::resource('/category', CategoryController::class);
+Route::resource('/product', ProductController::class);

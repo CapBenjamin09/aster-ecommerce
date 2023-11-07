@@ -1,5 +1,5 @@
 
-<x-layouts.client-layout title="Registrar">
+<x-layouts.client-layout title="Crear cuenta">
 
     <!-- component -->
     <div class="w-full">
@@ -8,34 +8,57 @@
             <div class="flex items-center text-center lg:text-left px-2 md:px-12 lg:w-1/2">
                 <div>
                     <div class="flex justify-center lg:justify-start mt-0 mb-2 px-32">
+
                         <form action="{{ route('register.store') }}" method="POST">
                             @csrf
-                            <h2 class="text-3xl mb-2 font-semibold text-gray-800 md:text-4xl"> Registrarse
+                            <h2 class="text-3xl mb-2 font-semibold text-gray-800 md:text-4xl"> Crear Cuenta
                             </h2>
+
+                            @if(session('status'))
+                                <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                                    <span class="font-medium">Alert!</span> {{session('status')}}
+                                </div>
+                            @endif
+
                             <div class="mb-6">
                                 <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                                     Nombre</label>
                                 <x-input-text type="text" id="name" name="name" placeholder="Nombre + Apellido" />
+                                @error('email')
+                                <p class="text-red-700 my-1 rounded-lg text-sm">{{ $message }}</p>
+                                @enderror
                             </div>
                             <div class="mb-6">
                                 <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                                     Correo electrónico</label>
                                 <x-input-text type="email" id="email" name="email" placeholder="name@company.com" />
+                                @error('email')
+                                <p class="text-red-700 my-1 rounded-lg text-sm">{{ $message }}</p>
+                                @enderror
                             </div>
                             <div class="mb-6">
                                 <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                                     Contraseña</label>
                                 <x-input-text type="password" id="password" name="password" placeholder="••••••••" />
+                                @error('email')
+                                <p class="text-red-700 my-1 rounded-lg text-sm">{{ $message }}</p>
+                                @enderror
                             </div>
                             <div class="mb-6">
                                 <label for="password_confirmation" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                                     Repetir contraseña</label>
                                 <x-input-text type="password" id="password_confirmation" name="password_confirmation" placeholder="••••••••" />
+                                @error('email')
+                                <p class="text-red-700 my-1 rounded-lg text-sm">{{ $message }}</p>
+                                @enderror
                             </div>
                             <div class="mb-6">
                                 <label for="phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                                     No. de celular</label>
                                 <x-input-text type="number" id="phone" name="phone" placeholder="ej: 00000000" />
+                                @error('email')
+                                <p class="text-red-700 my-1 rounded-lg text-sm">{{ $message }}</p>
+                                @enderror
                             </div>
 
                             <x-button type_button="primary" type="submit">

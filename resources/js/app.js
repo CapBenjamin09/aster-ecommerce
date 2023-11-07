@@ -7,3 +7,9 @@ import {
 
 initTE({ Collapse, Dropdown });
 
+// Initialization for ES Users
+import {
+    Carousel,
+} from "tw-elements";
+
+initTE({ Carousel });
