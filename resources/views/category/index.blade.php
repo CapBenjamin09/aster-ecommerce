@@ -22,7 +22,7 @@
     <div class="static shadow-md sm:rounded-lg px-3 mt-5">
 
         <table class="w-full text-sm text-left text-gray-500">
-            <thead class="text-xs text-white uppercase bg-gray-600">
+            <thead class="text-xs text-white uppercase bg-orange-800">
             <tr>
                 <th scope="col" class="px-10 py-3">
                     Imagen
@@ -42,9 +42,9 @@
             <tbody>
 
             @foreach($categories as $category)
-                <tr class="bg-white border-">
+                <tr class="bg-white hover:bg-gray-100 divide-y divide-slate-200">
                     <th scope="row" class="px-10 py-4 font-medium text-gray-900 whitespace-nowrap">
-                        <img src="{{ asset($category->image_path)}}" alt="" class="w-30 h-20">
+                        <img src="{{ asset($category->image_path)}}" alt="" class="w-30 h-20 rounded-xl">
                     </th>
                     <td class="px-10 py-4">
                         {{$category->id}}

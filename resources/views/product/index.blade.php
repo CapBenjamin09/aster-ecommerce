@@ -22,7 +22,7 @@
     <div class="static shadow-md sm:rounded-2xl mx-5 mt-5">
 
         <table class="w-full text-sm text-left text-gray-500">
-            <thead class="text-xs text-white uppercase bg-gray-600">
+            <thead class="text-xs text-white uppercase bg-orange-800">
             <tr>
                 <th scope="col" class="px-10 py-3">
                     Imagen
@@ -48,7 +48,7 @@
             <tbody>
 
             @foreach($products as $product)
-                <tr class="bg-white border-">
+                <tr class="bg-white hover:bg-gray-100 divide-y divide-slate-200">
                     <th scope="row" class="px-10 py-4 font-medium text-gray-900 whitespace-nowrap">
                         <img src="{{ asset($product->image_path)}}" alt="" class="w-30 h-20">
                     </th>
