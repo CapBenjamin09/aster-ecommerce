@@ -14,10 +14,11 @@ class CategoryController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $categories = Category::paginate(5);
-        return view('category.index', compact('categories'));
+        $search = trim($request->search);
+        $categories = Category::where('name', 'LIKE', '%' . $search . '%')->orderBy('name', 'asc')->paginate(5);;
+        return view('admin.category.index', compact('categories', 'search'));
     }
 
     /**
@@ -25,7 +26,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('category.create');
+        return view('admin.category.create');
     }
 
     /**
@@ -52,7 +53,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        return view('category.edit', compact('category'));
+        return view('admin.category.edit', compact('category'));
     }
 
     /**

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -11,10 +12,12 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $users = User::where('role', '=', 'admin')->paginate(10);
-        return view('admin.users.index', compact('users'));
+        $search = trim($request->search);
+        $users = User::where('name', 'LIKE', '%' . $search . '%')->where('role', '=', 'admin')->orderBy('name', 'asc')->paginate(5);
+
+        return view('admin.users.index', compact('users', 'search'));
     }
 
     /**

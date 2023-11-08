@@ -16,17 +16,14 @@
                 </x-error-alert>
             @endif
 
-            @include('category.form')
+            @include('admin.category.form')
 
             <div class="mt-10">
                 <x-button type_button="primary" type="submit">
                     Guardar
                 </x-button>
 
-                &nbsp;
-                <x-button type_button="primary" type="submit">
-                    <a href="{{route('category.index')}}"> Regresar </a>
-                </x-button>
+                <x-a-button type_button="primary" href="{{route('category.index')}}"> Regresar </x-a-button>
             </div>
 
         </form>

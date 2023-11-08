@@ -81,10 +81,7 @@
                     Guardar
                 </x-button>
 
-                &nbsp;
-                <x-button type_button="primary" type="submit">
-                    <a href="{{route('users.index')}}"> Regresar </a>
-                </x-button>
+                <x-a-button type_button="primary" href="{{route('users.index')}}"> Regresar </x-a-button>
             </div>
 
         </form>

@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateProductRequest;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 
@@ -15,11 +16,12 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $products = Product::paginate(5);
-        $count = Product::all()->count();
-        return view('product.index', compact('products', 'count'));
+        $search = trim($request->search);
+        $products = Product::where('name', 'LIKE', '%' . $search . '%')->orderBy('name', 'asc')->paginate(5);;
+
+        return view('admin.product.index', compact('products', 'search'));
     }
 
     /**
@@ -28,7 +30,7 @@ class ProductController extends Controller
     public function create()
     {
         $categories = Category::all();
-        return view('product.create', compact('categories'));
+        return view('admin.product.create', compact('categories'));
     }
 
     /**
@@ -46,7 +48,7 @@ class ProductController extends Controller
         $data['image_path'] = 'products/'. $nameImage;
         Product::create($data);
 
-        return redirect()->route('product.index');
+        return redirect()->route('admin.product.index');
     }
 
     /**
@@ -63,7 +65,7 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         $categories = Category::all();
-        return view('product.edit', compact('product', 'categories'));
+        return view('admin.product.edit', compact('product', 'categories'));
     }
 
     /**

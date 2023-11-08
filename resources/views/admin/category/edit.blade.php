@@ -8,7 +8,8 @@
 
     <div class="container static px-10 py-5">
 
-        <form class="border border-amber-200 shadow-md rounded-2xl px-8 pt- pb-8 mb-4" action="{{ route('category.update', $category) }}" method="post" enctype="multipart/form-data">
+        <form class="border border-amber-200 shadow-md rounded-2xl px-8 pt- pb-8 mb-4"
+              action="{{ route('category.update', $category) }}" method="post" enctype="multipart/form-data">
             @csrf
             @method('patch')
             @if(session('status'))
@@ -17,17 +18,14 @@
                 </x-error-alert>
             @endif
 
-            @include('category.form')
+            @include('admin.category.form')
 
             <div class="mt-10">
                 <x-button type_button="primary" type="submit">
                     Guardar
                 </x-button>
 
-                &nbsp;
-                <x-button type_button="primary" type="submit">
-                    <a href="{{route('category.index')}}"> Regresar </a>
-                </x-button>
+                <x-a-button type_button="primary" href="{{route('category.index')}}"> Regresar </x-a-button>
             </div>
 
         </form>

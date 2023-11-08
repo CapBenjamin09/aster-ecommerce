@@ -12,10 +12,17 @@
         @endif
     </div>
 
-    <div class="px-10 md:px-10">
-        <x-button type_button="primary" type="submit">
-            <a href="{{route('product.create')}}"> Nuevo </a>
-        </x-button>
+    <div class="px-10 mt-5 md:px-10 flex justify-between">
+        <x-a-button type_button="primary" href="{{route('product.create')}}"> Nuevo </x-a-button>
+        <form action="{{ route('product.index') }}" method="get" class="flex justify-between">
+            @csrf
+            <x-input-text id="search" name="search" placeholder="Escribe el nombre del producto..." value="{{ $search }}" class="h-11 mr-5"/>
+            <x-button type="submit" type_button="info">
+                <svg class="w-6 h-6 text-" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                </svg>
+            </x-button>
+        </form>
     </div>
 
 

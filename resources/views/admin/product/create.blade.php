@@ -2,7 +2,7 @@
 
         <div class="py-2 px-10 md:px-10">
             <h2 class="text-3xl mt-2 font-semibold text-center text-gray-800">
-                Crear usuario
+                Crear Producto
             </h2>
         </div>
 
@@ -15,17 +15,14 @@
                 </x-error-alert>
             @endif
 
-            @include('product.form')
+            @include('admin.product.form')
 
             <div class="mt-10">
                 <x-button type_button="primary" type="submit">
                     Guardar
                 </x-button>
 
-                &nbsp;
-                <x-button type_button="primary" type="submit">
-                    <a href="{{route('product.index')}}"> Regresar </a>
-                </x-button>
+                <x-a-button type_button="primary"  href="{{route('product.index')}}"> Regresar </x-a-button>
             </div>
         </form>
     </div>

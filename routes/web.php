@@ -1,6 +1,7 @@
 <?php
 
 
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionController;
@@ -21,6 +22,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//LOGOUT
 Route::post('/logout', [LogoutController::class, 'store'])->name('logout');
 
 Route::middleware('guest')->group( function () {
@@ -42,14 +44,12 @@ Route::middleware(['auth', 'admin'])->group( function () {
     Route::resource('/product', ProductController::class);
     //CRUD USUARIOS - ADMINISTRADOR
     Route::resource('/users', UserController::class);
-    //LOGOUT
-    Route::post('/logout', [LogoutController::class, 'store'])->name('logout');
+    //INDEX CLIENTES - ADMINISTRADOR
+    Route::get('/clients', [ClientController::class, 'index'])->name('client.index');
 });
 
 Route::middleware(['auth', 'client'])->group( function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('/home/{category}/category', [HomeController::class, 'showCategory'])->name('home.category');
     Route::get('/home/{product}/product', [HomeController::class, 'showProduct'])->name('home.product');
-    //LOGOUT
-
 });
