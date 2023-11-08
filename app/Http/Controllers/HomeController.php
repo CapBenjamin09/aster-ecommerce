@@ -23,6 +23,7 @@ class HomeController extends Controller
         return view('client.category', compact('products', 'category'));
     }
 
+    //FUNCIÓN QUE ENVIAR AL SHOW DE PRODUCTO ESPECIFICO
     public function showProduct(Product $product) {
 
         return view('client.product', compact('product'));
