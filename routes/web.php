@@ -1,6 +1,7 @@
 <?php
 
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\LogoutController;
@@ -19,6 +20,8 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::post('/logout', [LogoutController::class, 'store'])->name('logout');
 
 Route::middleware('guest')->group( function () {
     //RUTEO DE REGISTRO - CLIENTES
@@ -40,11 +43,12 @@ Route::middleware(['auth', 'admin'])->group( function () {
     //CRUD USUARIOS - ADMINISTRADOR
     Route::resource('/users', UserController::class);
     //LOGOUT
-    Route::post('/logout', [LogoutController::class, 'store'])->name('logout');
 });
 
 Route::middleware(['auth', 'client'])->group( function () {
-    Route::get('/home', function () {return view('client.home');})->name('home');
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::get('/home/{category}/category', [HomeController::class, 'showCategory'])->name('home.category');
+    Route::get('/home/{product}/product', [HomeController::class, 'showProduct'])->name('home.product');
     //LOGOUT
-    Route::post('/logout', [LogoutController::class, 'store'])->name('logout');
+
 });

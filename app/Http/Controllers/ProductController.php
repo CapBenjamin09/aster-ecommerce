@@ -39,7 +39,7 @@ class ProductController extends Controller
 
         $image = $request->file('image_path');
         $nameImage = Str::uuid().'.'. $image->extension();
-        $imageServer = Image::make($image)->fit(50, 50);
+        $imageServer = Image::make($image)->fit(500, 500);
         $imagePath = public_path('products').'/'.$nameImage;
         $imageServer->save($imagePath);
         $data['image_path'] = 'products/'. $nameImage;
@@ -80,7 +80,7 @@ class ProductController extends Controller
             $image = $request->file('image_path');
             $nameImage = Str::uuid().'.'. $image->extension();
 
-            $imageServer = Image::make($image)->fit(50, 50);
+            $imageServer = Image::make($image)->fit(500, 500);
             $imagePath = public_path('products').'/'.$nameImage;
             $imageServer->save($imagePath);
             $data['image_path'] = 'products/'. $nameImage;

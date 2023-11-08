@@ -38,7 +38,7 @@ class CategoryController extends Controller
         $image = $request->file('image_path');
         $nameImage = Str::uuid().'.'. $image->extension();
 
-        $imageServer = Image::make($image)->fit(50, 50);
+        $imageServer = Image::make($image)->fit(128, 128);
         $imagePath = public_path('categories').'/'.$nameImage;
         $imageServer->save($imagePath);
         $data['image_path'] = 'categories/'. $nameImage;
@@ -71,7 +71,7 @@ class CategoryController extends Controller
             $image = $request->file('image_path');
             $nameImage = Str::uuid().'.'. $image->extension();
 
-            $imageServer = Image::make($image)->fit(50, 50);
+            $imageServer = Image::make($image)->fit(128, 128);
             $imagePath = public_path('categories').'/'.$nameImage;
             $imageServer->save($imagePath);
             $data['image_path'] = 'categories/'. $nameImage;
