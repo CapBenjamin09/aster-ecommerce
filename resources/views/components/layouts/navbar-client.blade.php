@@ -76,20 +76,20 @@
                             role="button"
                             data-te-dropdown-toggle-ref
                             aria-expanded="false">
-                            Categories &nbsp;
+                            Categories
                             <span>
-                             <svg class="w-3 h-3 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                             <svg class="mx-1 w-3 h-3 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                                 <path stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
                             </svg>
                             </span>
                         </a>
                         <!-- First dropdown menu -->
                         <ul
-                            class="absolute z-[1000] float-left m-0 hidden h-96 w-96 list-none overflow-hidden bg-orange-600 bg-clip-padding text-left text-base shadow-lg [&[data-te-dropdown-show]]:block"
+                            class="mt-10 absolute z-[1000] float-left m-0 hidden h-96 w-96 list-none overflow-hidden bg-orange-600 bg-clip-padding text-left text-base shadow-lg [&[data-te-dropdown-show]]:block"
                             aria-labelledby="dropdownMenuButton1"
                             data-te-dropdown-menu-ref>
                             <!-- First dropdown menu items -->
-                            <li>
+                            <li class="mt-5">
                                 <a
                                     class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-white hover:bg-neutral-100 hover:text-gray-700 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400"
                                     href="#"
@@ -115,6 +115,25 @@
                             </li>
                         </ul>
                     </div>
+                </li>
+                <li class="px-52">
+
+                    <form>
+                        <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only">Search</label>
+                            <div class="relative">
+
+                            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events">
+                                <button type="submit">
+                                <svg class="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                                </svg>
+                                </button>
+                            </div>
+                            <input type="search" id="default-search" class="block p-1 pl-10 w-96 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-yellow-100 focus:border-yellow-500" placeholder="Search...">
+
+                            </div>
+                    </form>
+
                 </li>
             </ul>
         </div>
