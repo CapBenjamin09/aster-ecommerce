@@ -6,10 +6,8 @@
         </h2>
     </div>
 
-<div class="container static shadow-md sm:rounded-lg px-10 py-10">
-    <table class="bg-white w-full text-sm text-left text-gray-500">
-
-        <form method="POST" action="{{ route( 'users.store' )}}">
+    <div class="container static px-10 py-10">
+        <form class="border border-amber-200 shadow-md rounded-2xl px-8 pt-6 pb-8 mb-4" method="POST" action="{{ route( 'users.store' )}}">
             @csrf
 
             <label for="name" class="block mb-2 text-dm font-medium text-gray-900 dark:text-white">
@@ -23,8 +21,9 @@
                     </span>
 
                 <input type="text" id="name" name="name" value="{{ old('name')}}" class="rounded-none rounded-r-lg bg-gray-50 border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Escribe tu nombre">
-                @error('email')
-                <p class="text-red-700 my-1 rounded-lg text-sm">{{ $message }}</p>
+                @error('name')
+
+                <p class="px-3 text-red-700 my-1 rounded-lg text-sm"> {{ $message }}</p>
                 @enderror
             </div>
 
@@ -41,7 +40,7 @@
 
                 <input type="email" id="email" name="email" value="{{ old('email')}}" class="rounded-none rounded-r-lg bg-gray-50 border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Escribe tu correo electrónico">
                 @error('email')
-                <p class="text-red-700 my-1 rounded-lg text-sm">{{ $message }}</p>
+                <p class="px-3 text-red-700 my-1 rounded-lg text-sm">{{ $message }}</p>
                 @enderror
             </div>
 
@@ -56,8 +55,8 @@
                     </span>
 
                 <input type="password" id="password" name="password" value="{{ old('password')}}" class="rounded-none rounded-r-lg bg-gray-50 border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Escribe tu contraseña">
-                @error('email')
-                <p class="text-red-700 my-1 rounded-lg text-sm">{{ $message }}</p>
+                @error('password')
+                <p class="px-3 text-red-700 my-1 rounded-lg text-sm">{{ $message }}</p>
                 @enderror
             </div>
 
@@ -72,8 +71,8 @@
                     </span>
 
                 <input type="number" id="phone" name="phone" value="{{ old('phone')}}" class="rounded-none rounded-r-lg bg-gray-50 border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Escribe tu número de teléfono">
-                @error('email')
-                <p class="text-red-700 my-1 rounded-lg text-sm">{{ $message }}</p>
+                @error('phone')
+                <p class="px-3 text-red-700 my-1 rounded-lg text-sm">{{ $message }}</p>
                 @enderror
             </div>
 
@@ -90,6 +89,5 @@
 
         </form>
 
-    </table>
 </div>
     </x-layouts.admin-layout>

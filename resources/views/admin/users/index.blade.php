@@ -23,7 +23,7 @@
 <div class="static  shadow-md sm:rounded-lg px-2">
 
     <table class="w-full text-sm text-left text-gray-500">
-        <thead class="text-xs text-white uppercase bg-gray-600">
+        <thead class="text-xs text-white uppercase bg-orange-800">
         <tr>
             <th scope="col" class="px-10 py-3">
                 Nombre
@@ -46,8 +46,8 @@
         <tbody>
 
         @foreach($users as $user)
-            <tr class="bg-white border-">
-                <th scope="row" class="px-10 py-4 font-medium text-gray-900 whitespace-nowrap">
+            <tr class="bg-white border border-2xl hover:bg-gray-100">
+                <th scope="row" class=" px-10 py-4 font-medium text-gray-900 whitespace-nowrap">
                     {{$user->name}}
                 </th>
                 <td class="px-10 py-4">

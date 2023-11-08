@@ -43,6 +43,7 @@ Route::middleware(['auth', 'admin'])->group( function () {
     //CRUD USUARIOS - ADMINISTRADOR
     Route::resource('/users', UserController::class);
     //LOGOUT
+    Route::post('/logout', [LogoutController::class, 'store'])->name('logout');
 });
 
 Route::middleware(['auth', 'client'])->group( function () {

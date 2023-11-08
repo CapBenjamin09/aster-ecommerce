@@ -6,10 +6,9 @@
         </h2>
     </div>
 
-    <div class="container static shadow-md sm:rounded-lg px-10 py-10">
-        <table class="bg-white w-full text-sm text-left text-gray-500">
+    <div class="container static px-10 py-10">
 
-            <form method="POST" action="{{ route('users.update', $user )}}">
+            <form class="border border-amber-200 shadow-md rounded-2xl px-8 pt-6 pb-8 mb-4" method="POST" action="{{ route('users.update', $user )}}">
                 @csrf
                 @method('PATCH')
 
@@ -79,6 +78,5 @@
 
             </form>
 
-        </table>
     </div>
 </x-layouts.admin-layout>

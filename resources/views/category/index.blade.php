@@ -1,30 +1,28 @@
 <x-layouts.admin-layout ttitle="Listado de categorías">
 
 
-
-    @if(session('eliminar'))
-        <div class="flex justify-center px-2 p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50" role="alert">
-            {{ session('eliminar') }}
-        </div>
-    @endif
-
-    <div class="py-5 px-10 md:px-10">
-        <h2 class="text-3xl mb-2 mt-10 font-semibold text-center text-gray-800">
+    <div class="px-10 md:px-10">
+        <h2 class="text-3xl font-semibold text-center text-gray-800">
             Listado de categorías
         </h2>
+        @if(session('eliminar'))
+            <div class="flex justify-center px-2 p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50" role="alert">
+                {{ session('eliminar') }}
+            </div>
+        @endif
     </div>
 
-    <div class="py-5 px-10 md:px-10">
+    <div class="px-10 md:px-10">
         <x-button type_button="primary" type="submit">
             <a href="{{route('category.create')}}"> Nuevo </a>
         </x-button>
     </div>
 
 
-    <div class="static  shadow-md sm:rounded-lg px-2">
+    <div class="static shadow-md sm:rounded-lg px-3 mt-5">
 
         <table class="w-full text-sm text-left text-gray-500">
-            <thead class="text-xs text-white uppercase bg-gray-600">
+            <thead class="text-xs text-white uppercase bg-orange-800">
             <tr>
                 <th scope="col" class="px-10 py-3">
                     Imagen
@@ -44,9 +42,9 @@
             <tbody>
 
             @foreach($categories as $category)
-                <tr class="bg-white border-">
+                <tr class="bg-white hover:bg-gray-100 divide-y divide-slate-200">
                     <th scope="row" class="px-10 py-4 font-medium text-gray-900 whitespace-nowrap">
-                        {{$category->image_path}}
+                        <img src="{{ asset($category->image_path)}}" alt="" class="w-30 h-20 rounded-xl">
                     </th>
                     <td class="px-10 py-4">
                         {{$category->id}}
@@ -71,10 +69,10 @@
 
             </tbody>
         </table>
-    </div>
 
-    <div class="my-10">
-        {{$categories->links()}}
     </div>
+        <div class="py-10 px-2">
+            {{$categories->links()}}
+        </div>
 
 </x-layouts.admin-layout>

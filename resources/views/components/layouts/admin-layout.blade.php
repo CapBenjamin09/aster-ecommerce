@@ -17,7 +17,7 @@
             <x-layouts.navbar-admin/>
         </section>
 
-        <section class="col-span-10 py-5 px-2">
+        <section class="col-span-10 py-5 px-2 pl-3">
             {{ $slot }}
         </section>
 
