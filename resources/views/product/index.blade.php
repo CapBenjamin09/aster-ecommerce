@@ -1,4 +1,4 @@
-<x-layouts.admin-layout ttitle="Listado de productos">
+<x-layouts.admin-layout title="Listado de productos">
 
 
     <div class="px-10 md:px-10">

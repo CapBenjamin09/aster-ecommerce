@@ -1,4 +1,4 @@
-<x-layouts.admin-layout ttitle="Listado de categorías">
+<x-layouts.admin-layout title="Listado de categorías">
 
 
     <div class="px-10 md:px-10">
