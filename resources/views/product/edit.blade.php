@@ -1,7 +1,12 @@
 <x-layouts.admin-layout>
-    <div class="w-full max-w-xs mx-auto mt-20 bg-white shadow-2xl">
-        <h1>Productos</h1>
-        <form class="shadow-md rounded px-8 pt-6 pb-8 mb-4" action="{{ route('product.update', $product) }}" method="post" enctype="multipart/form-data">
+    <div class="py-2 px-10 md:px-10">
+        <h2 class="text-3xl mt-2 font-semibold text-center text-gray-800">
+            Editar usuario
+        </h2>
+    </div>
+
+    <div class="container static px-10">
+        <form class="border border-amber-200 shadow-md rounded-2xl px-8 pt-6 pb-8 mb-4" action="{{ route('product.update', $product) }}" method="post" enctype="multipart/form-data">
             @csrf
             @method('patch')
             @if(session('status'))
@@ -12,14 +17,17 @@
 
             @include('product.form')
 
-            <div class="flex items-center justify-between">
-                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+            <div class="mt-10">
+                <x-button type_button="primary" type="submit">
                     Guardar
-                </button>
-                <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="{{ route('category.index') }}">
-                    Regresar
-                </a>
+                </x-button>
+
+                &nbsp;
+                <x-button type_button="primary" type="submit">
+                    <a href="{{route('product.index')}}"> Regresar </a>
+                </x-button>
             </div>
+
         </form>
     </div>
 

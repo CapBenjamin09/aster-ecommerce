@@ -16,7 +16,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::paginate(15);
+        $categories = Category::paginate(5);
         return view('category.index', compact('categories'));
     }
 
@@ -94,6 +94,6 @@ class CategoryController extends Controller
             unlink($image_path);
         }
 
-        return back()->with('eliminar', 'El usuario ha sido eliminado.');
+        return back()->with('eliminar', 'La categoría ha sido eliminada.');
     }
 }

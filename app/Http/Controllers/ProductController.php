@@ -17,8 +17,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::paginate(10);
-        return view('product.index', compact('products'));
+        $products = Product::paginate(5);
+        $count = Product::all()->count();
+        return view('product.index', compact('products', 'count'));
     }
 
     /**
@@ -102,6 +103,6 @@ class ProductController extends Controller
             unlink($image_path);
         }
 
-        return redirect()->route('product.index');
+        return back()->with('eliminar', 'El producto ha sido eliminado.');
     }
 }

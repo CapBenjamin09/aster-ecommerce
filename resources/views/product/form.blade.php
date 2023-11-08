@@ -1,13 +1,29 @@
 @php
     $edit = isset($product)
 @endphp
+
+<div>
+    @if($edit)
+        <div class="flex justify-center">
+            <img src="{{ asset($product->image_path) }}" alt="{{ $product->name }}" class="px-5 py-1 rounded-full object-cover h-48 w-50">
+        </div>
+    @endif
+        <x-label>
+            Imagen de producto:
+        </x-label>
+    <x-input-text2 id="image_path" name="image_path" type="file" />
+    @error('image_path')
+    <x-error-alert title="Error:">{{ $message }}</x-error-alert>
+    @enderror
+</div>
+
 <div class="mb-4">
     <x-label>
         Nombre de producto:
     </x-label>
-    <x-input-text id="name" name="name" placeholder="Escribe el nombre del producto" type="text" value="{{ $edit ? old( 'name', $product->name) : old('name') }}"/>
+    <x-input-text2 id="name" name="name" placeholder="Escribe el nombre del producto" type="text" value="{{ $edit ? old( 'name', $product->name) : old('name') }}"/>
     @error('name')
-        <x-error-alert title="Error">{{ $message }}</x-error-alert>
+        <x-error-alert title="Error:">{{ $message }}</x-error-alert>
     @enderror
 </div>
 <div class="mb-4">
@@ -18,25 +34,25 @@
         {{$edit ? old('detail', $product->detail) : old('detail') }}
     </x-text-area>
     @error('detail')
-        <x-error-alert title="Error">{{ $message }}</x-error-alert>
+        <x-error-alert title="Error:">{{ $message }}</x-error-alert>
     @enderror
 </div>
 <div class="mb-4">
     <x-label>
         Precio:
     </x-label>
-    <x-input-text id="price" name="price" type="number" step=".01" value="{{ $edit ? old( 'price', $product->price) : old('price') }}"/>
+    <x-input-text2 id="price" name="price" type="number" step=".01" value="{{ $edit ? old( 'price', $product->price) : old('price') }}"/>
     @error('price')
-        <x-error-alert title="Error">{{ $message }}</x-error-alert>
+        <x-error-alert title="Error:">{{ $message }}</x-error-alert>
     @enderror
 </div>
 <div class="mb-4">
     <x-label>
         Stock:
     </x-label>
-    <x-input-text id="stock" name="stock" type="number" value="{{ $edit ? old( 'stock', $product->stock) : old('stock') }}"/>
+    <x-input-text2 id="stock" name="stock" type="number" value="{{ $edit ? old( 'stock', $product->stock) : old('stock') }}"/>
     @error('stock')
-        <x-error-alert title="Error">{{ $message }}</x-error-alert>
+        <x-error-alert title="Error:">{{ $message }}</x-error-alert>
     @enderror
 </div>
 <div class="mb-4">
@@ -59,19 +75,6 @@
             @endif
         @endforeach
     </select>
-    @error('stock')
-    <x-error-alert title="Error">{{ $message }}</x-error-alert>
-    @enderror
+
 </div>
-<div>
-    <x-label>
-        Imagen de producto:
-    </x-label>
-    @if($edit)
-        <img src="{{ asset($product->image_path) }}" alt="{{ $product->name }}">
-    @endif
-    <x-input-text id="image_path" name="image_path" type="file" />
-    @error('image_path')
-    <x-error-alert title="Error">{{ $message }}</x-error-alert>
-    @enderror
-</div>
+

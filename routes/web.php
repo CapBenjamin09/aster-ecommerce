@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::post('/logout', [LogoutController::class, 'store'])->name('logout');
 
 Route::middleware('guest')->group( function () {
     //RUTEO DE REGISTRO - CLIENTES
@@ -40,11 +41,9 @@ Route::middleware(['auth', 'admin'])->group( function () {
     //CRUD USUARIOS - ADMINISTRADOR
     Route::resource('/users', UserController::class);
     //LOGOUT
-    Route::post('/logout', [LogoutController::class, 'store'])->name('logout');
 });
 
 Route::middleware(['auth', 'client'])->group( function () {
     Route::get('/home', function () {return view('client.home');})->name('home');
     //LOGOUT
-    Route::post('/logout', [LogoutController::class, 'store'])->name('logout');
 });
