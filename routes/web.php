@@ -1,7 +1,6 @@
 <?php
 
 
-use App\Http\Controllers\ClientController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionController;
@@ -21,7 +20,6 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
 //LOGOUT
 Route::post('/logout', [LogoutController::class, 'store'])->name('logout');
 

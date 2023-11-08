@@ -80,7 +80,7 @@
         </table>
 
     </div>
-        <div class="py-10 px-2">
+        <div class="py-10 px-10">
             {{$categories->links()}}
         </div>
 
