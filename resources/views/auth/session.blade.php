@@ -35,14 +35,16 @@
                             <p class="text-red-700 my-1 rounded-lg text-sm">{{ $message }}</p>
                             @enderror
                         </div>
-                        <div class="flex items-start mb-6">
+                        <div class="flex items-start mb-2">
                             <div class="flex items-center h-5">
                                 <input id="remember" type="checkbox" value="" class="w-4 h-4 border border-gray-300 rounded
                                 bg-gray-50 focus:ring-3 focus:ring-blue-300"  >
                             </div>
-                            <label for="remember" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+
+                            <label for="remember" class="ml-2 text-sm font-medium text-gray-900">
                                 Remember me</label>
                         </div>
+
                         <x-button type_button="primary" type="submit">
                             Iniciar sesión
                         </x-button>

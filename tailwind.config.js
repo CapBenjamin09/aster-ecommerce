@@ -38,9 +38,14 @@ export default {
                 200: '#ffe88d',
             }
 
-        }
+        },
+
+        gridTemplateRows: {
+            '[auto,auto,1fr]': 'auto auto 1fr',
+        },
     },
   },
-  plugins: [require("tw-elements/dist/plugin.cjs")],
+
+  plugins: [require("tw-elements/dist/plugin.cjs", "@tailwindcss/aspect-ratio")],
 }
 

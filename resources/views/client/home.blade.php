@@ -52,7 +52,7 @@
                     class="relative float-left -mr-[100%] w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
                     data-te-carousel-item
                     data-te-carousel-active>
-                    <a href="http://aster-ecommerce.test/home/21/product">
+                    <a href="http://127.0.0.1:8000/home/19/product">
                     <img
                         src="https://cdn.kemik.gt/2023/11/XIAOMI-NOV-BANNER-WEB.jpg"
                         class="block w-full rounded-2xl"
@@ -85,7 +85,7 @@
                 <div
                     class="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
                     data-te-carousel-item>
-                    <a href="http://aster-ecommerce.test/home/21/product">
+                    <a href="http://127.0.0.1:8000/home/19/product">
                     <img
                         src="https://cdn.kemik.gt/2023/11/BANNER%20WEB%20MOLVU%20BIX%20-%20KEMIK.jpg"
                         class="block w-full rounded-2xl"
@@ -169,12 +169,13 @@
 
                 <div class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
                     @foreach($products as $product)
-                    <a href="{{ route('home.product', $product) }}" class="group">
-                        <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
-                            <img src="{{ asset($product->image_path) }}" alt="Tall slender porcelain bottle with natural clay textured body and cork stopper." class="h-full w-full object-cover object-center group-hover:opacity-75">
+                    <a href="{{ route('home.product', $product) }}" class="group shadow border border-gray-200 rounded-2xl hover:opacity-80">
+                        <div class="relative aspect-h-1 aspect-w-1 w-full overflow-hidden bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 rounded-2xl">
+                            <img src="{{ asset($product->image_path) }}" alt="Tall slender porcelain bottle with natural clay textured body and cork stopper." class="h-full w-full object-cover object-center">
+                            <span class="absolute top-0 left-0 w-28 translate-y-4 -translate-x-6 -rotate-45 bg-yellow-600 text-center text-sm text-white">Nuevo</span>
                         </div>
-                        <h3 class="mt-4 text-sm text-gray-700">{{ $product->name }}</h3>
-                        <p class="mt-1 text-lg font-medium text-gray-900">Q.{{ $product->price }}</p>
+                        <h3 class="px-2 mt-4 text-sm text-gray-700">{{ $product->name }}</h3>
+                        <p class="px-2 mt-1 text-lg font-medium text-gray-900">Q.{{ $product->price }}</p>
                     </a>
                     @endforeach
                     <!-- More products... -->

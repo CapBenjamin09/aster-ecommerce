@@ -51,7 +51,7 @@
                         class="text-white transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none lg:px-2 [&.active]:text-black/90"
                         href="{{ route('home') }}"
                         data-te-nav-link-ref
-                    >Dashboard</a>
+                    >Home</a>
                 </li>
                 <!-- Team link -->
                 <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
@@ -63,16 +63,63 @@
                     >
                 </li>
                 <!-- Projects link -->
-                <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
-                    <a
-                        class="text-white transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none lg:px-2 [&.active]:text-black/90"
-                        href="#"
-                        data-te-nav-link-ref
-                    >Projects</a
-                    >
+                <li>
+                    <div
+                        class="relative"
+                        data-te-dropdown-ref
+                        data-te-dropdown-alignment="end">
+                        <!-- First dropdown trigger -->
+                        <a
+                            class="hidden-arrow mr-4 flex items-center text-white transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-white disabled:text-black/30 motion-reduce:transition-none [&.active]:text-black/90"
+                            href="#"
+                            id="dropdownMenuButton1"
+                            role="button"
+                            data-te-dropdown-toggle-ref
+                            aria-expanded="false">
+                            Categories &nbsp;
+                            <span>
+                             <svg class="w-3 h-3 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                <path stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                            </svg>
+                            </span>
+                        </a>
+                        <!-- First dropdown menu -->
+                        <ul
+                            class="absolute z-[1000] float-left m-0 hidden h-96 w-96 list-none overflow-hidden bg-orange-600 bg-clip-padding text-left text-base shadow-lg [&[data-te-dropdown-show]]:block"
+                            aria-labelledby="dropdownMenuButton1"
+                            data-te-dropdown-menu-ref>
+                            <!-- First dropdown menu items -->
+                            <li>
+                                <a
+                                    class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-white hover:bg-neutral-100 hover:text-gray-700 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400"
+                                    href="#"
+                                    data-te-dropdown-item-ref
+                                >Action</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-white hover:bg-neutral-100 hover:text-gray-700 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400"
+                                    href="#"
+                                    data-te-dropdown-item-ref
+                                >Another action</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-white hover:bg-neutral-100 hover:text-gray-700 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400"
+                                    href="#"
+                                    data-te-dropdown-item-ref
+                                >Something else here</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
                 </li>
             </ul>
         </div>
+
+
 
         <!-- Right elements -->
         <div class="relative flex items-center">
