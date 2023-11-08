@@ -10,7 +10,7 @@
 
         <form action="{{ route('client.index') }}" method="get" class="flex justify-between">
             @csrf
-            <x-input-text id="search" name="search" placeholder="Escribe el nombre del usuario..." value="" class="h-11 mr-5"/>
+            <x-input-text id="search" name="search" placeholder="Escribe el nombre del cliente..." value="" class="h-11 mr-5"/>
             <x-button type="submit" type_button="info">
                 <svg class="w-6 h-6 text-" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
