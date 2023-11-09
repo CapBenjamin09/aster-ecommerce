@@ -33,17 +33,17 @@
             data-te-collapse-item>
             <!-- Logo -->
             <a
-                class="mb-4 ml-2 mr-5 mt-3 flex items-center text-neutral-900 hover:text-neutral-900 focus:text-neutral-900 lg:mb-0 lg:mt-0"
+                class="flex justify-center items-center mb-2 w-20 h-auto text-neutral-900 hover:text-neutral-900 focus:text-neutral-900 lg:mb-0 lg:mt-0"
                 href="#">
                 <img
-                    src="{{ asset('') }}"
-                    style="height: 15px"
+                    src="{{ asset('img/navbar-client.png') }}"
+                    style="height: 40px"
                     alt="TE Logo"
                     loading="lazy" />
             </a>
             <!-- Left navigation links -->
             <ul
-                class="list-style-none mr-auto flex flex-col pl-0 lg:flex-row"
+                class="list-style-none mr-auto flex flex-col pl-0 lg:flex-row pl-5"
                 data-te-navbar-nav-ref>
                 <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
                     <!-- Dashboard link -->

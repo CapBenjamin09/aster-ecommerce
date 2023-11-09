@@ -14,21 +14,14 @@
     <link rel="shortcut icon" href="{{ asset('img/ASTER-3.png') }}">
 
 </head>
-<body>
+<body class="bg-gradient-to-r from-yellow-200 via-orange-300 to-lavender-400">
 <main class="">
-
-    <section class="">
-        <x-layouts.navbar-client/>
-
-    </section>
+    <img src="{{ asset('img/guest.png') }}" class="py-3 px-3 absolute w-32 h-32" alt="imagen-logo">
 
     <section class="flex mb-5">
         {{ $slot }}
     </section>
 
-    <section>
-        <x-layouts.footer-client/>
-    </section>
 
 </main>
 

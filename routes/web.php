@@ -53,3 +53,5 @@ Route::middleware(['auth', 'client'])->group( function () {
     Route::get('/home/{category}/category', [HomeController::class, 'showCategory'])->name('home.category');
     Route::get('/home/{product}/product', [HomeController::class, 'showProduct'])->name('home.product');
 });
+
+require __DIR__.'/auth.php';

@@ -19,17 +19,14 @@ class SessionController extends Controller
             'password' => ['required']
         ]);
 
+
+
         if (!auth()->attempt($request->only('email', 'password')))
         {
             return back()->with('status', 'Datos Incorrectos, por favor verifique');
         }
-
+//
         auth()->attempt($request->only('email', 'password'));
-
-//        if ('admin' == auth()->user()->role){
-//            return redirect()->route('dashboard');
-//        }
-
         return redirect()->route('home');
     }
 }

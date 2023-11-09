@@ -3,6 +3,7 @@
 <!-- component -->
 <div class="w-full">
 
+
     <div class="flex bg-white" style="height:700px;">
         <div class="flex items-center text-center lg:text-left px-2 md:px-12 lg:w-1/2">
             <div>
@@ -37,12 +38,10 @@
                         </div>
                         <div class="flex items-start mb-2">
                             <div class="flex items-center h-5">
-                                <input id="remember" type="checkbox" value="" class="w-4 h-4 border border-gray-300 rounded
-                                bg-gray-50 focus:ring-3 focus:ring-blue-300"  >
                             </div>
 
-                            <label for="remember" class="ml-2 text-sm font-medium text-gray-900">
-                                Remember me</label>
+                            <label for="remember" class="mb-2 text-sm font-medium text-blue-500">
+                                <a href="{{ route('formulario-recuperar-contrasenia') }}"> ¿Olvidaste tu contraseña? </a></label>
                         </div>
 
                         <x-button type_button="primary" type="submit">
