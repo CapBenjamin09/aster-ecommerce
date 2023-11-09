@@ -5,7 +5,7 @@
     <div class="justify-center mx-auto">
 
         <nav aria-label="Breadcrumb">
-            <ol role="list" class="ml-5 mt-6 flex max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+            <ol role="list" class="ml-14 mt-6 flex max-w-2xl items-center space-x-2 px-6 sm:px-6 lg:max-w-7xl lg:px-8">
 
                 <li>
                     <div class="flex items-center">

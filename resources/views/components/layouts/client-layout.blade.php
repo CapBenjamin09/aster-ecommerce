@@ -20,7 +20,7 @@
 
     </section>
 
-    <section class="flex mb-32">
+    <section class="flex mb-5">
         {{ $slot }}
     </section>
 

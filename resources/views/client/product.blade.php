@@ -21,10 +21,10 @@
   ```
 -->
 
-        <div class="bg-white">
-        <div class="pt-6">
-            <nav aria-label="Breadcrumb">
-                <ol role="list" class="mx-auto flex max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+    <div class="justify-center mx-auto">
+
+        <nav aria-label="Breadcrumb">
+            <ol role="list" class=" mt-6 flex max-w-2xl items-center  sm:px-6 lg:max-w-7xl lg:px-8">
 
                     <li>
                         <div class="flex items-center">
@@ -50,12 +50,11 @@
 
             <div class="justify-center p-5">
 
-                <hr class="h-px w-auto my-8 bg-gray-200 border-0">
-
                 <div class="container justify-center">
 
-            <!-- Product info -->
-            <div class="flex justify-center mx-auto max-w-2xl px-4 pb-16 pt-10 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pb-24 lg:pt-16">
+                    <hr class="h-px w-auto my-8 bg-gray-200 border-0">
+                    <!-- Product info -->
+            <div class="flex justify-center mx-auto max-w-2xl px-4 pb-16 pt-10 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 md:grid-cols-2 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pb-24 lg:pt-16">
 
 
                 <div class="flex justify-center lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8 mb-10">
@@ -90,7 +89,7 @@
                                 </svg>
                             </div>
                             <p class="sr-only">4 out of 5 stars</p>
-                            <a href="#" class="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500">117 reviews</a>
+                            <a href="#" class="ml-3 text-sm font-medium text-yellow-600 hover:text-yellow-500">117 reviews</a>
                         </div>
                     </div>
 
@@ -100,14 +99,12 @@
                             <h3 class="text-sm font-medium text-gray-900">Cantidad de artículos disponibles</h3>
 
                             <fieldset class="mt-4">
-                                <legend class="sr-only">Choose a color</legend>
-                                <div class="flex items-center space-x-3">
+                                <div class="flex items-center space-x-3 bg-yellow-100 w-20 justify-center rounded-md shadow">
                                     <!--
                                       Active and Checked: "ring ring-offset-1"
                                       Not Active and Checked: "ring-2"
                                     -->
-                                    <label class="relative -m-0.5 flex items-center justify-center p-0.5
-                                    focus:outline-none ring-gray-400 bg-gray-50 text-gray-600 rounded-md border w-32 hover:bg-gray-50 cursor-not-allowed">
+                                    <label class="focus:outline-none bg-yellow-100 text-gray-600 relative -m-0.5 flex pointer-events-none items-center justify-center rounded-lg p-0.5 ring-gray-400">
                                         {{ $product->stock }}
                                     </label>
 
@@ -118,21 +115,26 @@
                         <!-- Sizes -->
                         <div class="mt-10">
                             <div class="flex items-center justify-between">
-                                <a href="#" class="text-sm font-medium text-indigo-600 hover:text-indigo-500">Detalle</a>
+                                <a href="#" class="ml-2 text-sm font-medium text-yellow-600 hover:text-yellow-500">Detalle</a>
                             </div>
 
                             <fieldset class="mt-4">
                                 <legend class="sr-only">Choose a size</legend>
                                     <!-- Active: "ring-2 ring-indigo-500" -->
-                                    <label class="group relative flex items-center justify-center py-2 text-sm font-medium sm:flex-1 sm:py-3 text-gray-600">
+                                    <label class="px-2 group relative flex items-center justify-center py-3 text-sm font-light sm:flex-1 sm:py-6">
                                             {{ $product->detail }}
                                     </label>
                             </fieldset>
                         </div>
 
-                        <button type="submit" class="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white  focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Add to bag</button>
+                        <button type="submit" class="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-yellow-500 px-8 py-3 text-base font-medium text-gray-800 hover:bg-yellow-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="mr-2 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                            </svg>
+                            Add to bag</button>
                     </form>
                 </div>
+
 
                 <div class="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8 lg:pt-6">
                     <!-- Description and details -->
@@ -142,6 +144,7 @@
                         <div class="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg px-10 flex justify-center">
                             <img src="{{ asset($product->image_path) }}" alt="{{ $product->name }}" class="h-96 w-96 object-cover object-center border border-gray-300 rounded-2xl">
                         </div>
+
 
                 </div>
 
@@ -154,6 +157,5 @@
 
     </div>
     </div>
-        </div>
 
 </x-layouts.client-layout>
