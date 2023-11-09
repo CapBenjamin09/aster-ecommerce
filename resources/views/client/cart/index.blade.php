@@ -44,7 +44,9 @@
                     <p class="text-gray-600">Total:</p>
                     <p class="font-bold">Q.{{ Cart::subtotal() }}</p>
                 </div>
-                <button class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 rounded">Pagar</button>
+
+                <a   href="{{ route('payment.index') }}"class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 rounded">Pagar</a>
+
             </div>
         </div>
     </div>

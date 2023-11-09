@@ -4,6 +4,7 @@
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\LogoutController;
@@ -58,4 +59,6 @@ Route::middleware( 'client')->group( function () {
     Route::get('/cart', [ShoppingCartController::class, 'index'])->name('cart.index');
     Route::post('/cart-add', [ShoppingCartController::class, 'addItem'])->name('cart.add');
     Route::post('/cart-remove', [ShoppingCartController::class, 'removeItem'])->name('cart.remove');
+
+    Route::get('/payment', [PaymentController::class, 'index'])->name('payment.index');
 });
