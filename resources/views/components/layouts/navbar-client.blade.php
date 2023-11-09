@@ -43,7 +43,7 @@
             </a>
             <!-- Left navigation links -->
             <ul
-                class="list-style-none mr-auto flex flex-col pl-0 lg:flex-row pl-5"
+                class="list-style-none mr-auto flex flex-col lg:flex-row pl-5"
                 data-te-navbar-nav-ref>
                 <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
                     <!-- Dashboard link -->
@@ -92,20 +92,6 @@
                 </span>
             </a>
 
-            @guest
-                <a
-                    class="mr-4 text-white transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none [&.active]:text-black/90"
-                    href="{{ route('session.index') }}">
-                    Iniciar sesión
-                </a>
-                <a
-                    class="mr-4 text-white transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none [&.active]:text-black/90"
-                    href="{{ route('register.index') }}">
-                    Crear cuenta
-                </a>
-            @endguest
-
-            @auth
             <!-- Container with two dropdown menus -->
             <div
                 class="relative"
@@ -149,8 +135,7 @@
                             class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400"
                             href="#"
                             data-te-dropdown-item-ref
-                        >Action</a
-                        >
+                        >Action</a>
                     </li>
                     <li>
                         <a
@@ -186,7 +171,7 @@
                     aria-expanded="false">
                     <!-- User avatar -->
                     <img
-                        src="https://tecdn.b-cdn.net/img/new/avatars/2.jpg"
+                        src="{{ asset('img/icon_user.jpg') }}"
                         class="rounded-full"
                         style="height: 25px; width: 25px"
                         alt=""
@@ -198,22 +183,25 @@
                     aria-labelledby="dropdownMenuButton2"
                     data-te-dropdown-menu-ref>
                     <!-- Second dropdown menu items -->
+
+                    @guest
                     <li>
                         <a
                             class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400"
-                            href="#"
+                            href="{{ route('session.index') }}"
                             data-te-dropdown-item-ref
-                        >Action</a
-                        >
+                        >Iniciar sesión</a>
                     </li>
                     <li>
                         <a
                             class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400"
-                            href="#"
+                            href="{{ route('register.index') }}"
                             data-te-dropdown-item-ref
-                        >Another action</a
+                        >Crear cuenta</a
                         >
                     </li>
+                    @endguest
+                    @auth
                     <li>
                         <form action="{{ route('logout') }}" method="POST">
                             @csrf
@@ -224,8 +212,9 @@
                         >Cerrar sesión</button>
                         </form>
                     </li>
+                    @endauth
                 </ul>
-                @endauth
+
             </div>
         </div>
     </div>
