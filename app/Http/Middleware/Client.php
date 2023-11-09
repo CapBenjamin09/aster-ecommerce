@@ -15,10 +15,11 @@ class Client
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (auth()->user()->role == 'client') {
-            return $next($request);
+        if (auth()->user() && auth()->user()->role == 'admin') {
+            return redirect()->route('session.index');
+
         }
 
-        return redirect()->route('session.index');
+        return $next($request);
     }
 }

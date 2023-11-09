@@ -19,7 +19,7 @@ class ProductController extends Controller
     public function index(Request $request)
     {
         $search = trim($request->search);
-        $products = Product::where('name', 'LIKE', '%' . $search . '%')->orderBy('name', 'asc')->paginate(5);;
+        $products = Product::where('name', 'LIKE', '%' . $search . '%')->orderBy('name', 'asc')->paginate(5);
 
         return view('admin.product.index', compact('products', 'search'));
     }

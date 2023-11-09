@@ -4,6 +4,8 @@
 
     <div class="justify-center mx-auto">
 
+        @include('client.components.search-and-categories')
+
         <nav aria-label="Breadcrumb">
             <ol role="list" class="ml-14 mt-6 flex max-w-2xl items-center space-x-2 px-6 sm:px-6 lg:max-w-7xl lg:px-8">
 
