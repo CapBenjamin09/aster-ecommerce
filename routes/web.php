@@ -2,6 +2,7 @@
 
 
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionController;
@@ -36,7 +37,7 @@ Route::middleware('guest')->group( function () {
 
 Route::middleware(['auth', 'admin'])->group( function () {
     //VISTA PRINCIPAL DE ADMINISTRADOR
-    Route::get('/dashboard', function () {return view('dashboard');})->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     //CRUD CATEGORIAS - ADMINISTRADOR
     Route::resource('/category', CategoryController::class);
     //CRUD PRODUCTOS - ADMINISTRADOR
