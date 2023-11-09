@@ -1,4 +1,5 @@
 <x-layouts.client-layout title="{{ $product->name }}">
+
     <div class="justify-center mx-auto">
 
         <nav aria-label="Breadcrumb">
