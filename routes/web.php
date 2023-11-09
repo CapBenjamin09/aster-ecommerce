@@ -60,6 +60,10 @@ Route::middleware( 'client')->group( function () {
     Route::post('/cart-add', [ShoppingCartController::class, 'addItem'])->name('cart.add');
     Route::post('/cart-remove', [ShoppingCartController::class, 'removeItem'])->name('cart.remove');
 
+
+});
+
+Route::middleware(['auth', 'client'])->group( function () {
     Route::get('/payment', [PaymentController::class, 'index'])->name('payment.index');
 });
 
