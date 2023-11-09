@@ -9,12 +9,10 @@ use App\Models\Product;
 use Carbon\Carbon;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class PaymentController extends Controller
 {
     public function index() {
-
         return view('client.payment.index');
     }
 
@@ -46,5 +44,11 @@ class PaymentController extends Controller
         Cart::destroy();
 
         return redirect()->route('cart.index');
+    }
+
+    public function orderCompletion(){
+
+        return view ('client.payment.orderCompletion');
+
     }
 }
