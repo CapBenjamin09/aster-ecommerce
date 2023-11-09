@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('order_details', function (Blueprint $table) {
-            $table->foreignId('order_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+        Schema::table('orders', function (Blueprint $table) {
+            $table->string('cvv')->after('year_expiration');
         });
     }
 
@@ -21,7 +21,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('order_details', function (Blueprint $table) {
+        Schema::table('orders', function (Blueprint $table) {
             //
         });
     }

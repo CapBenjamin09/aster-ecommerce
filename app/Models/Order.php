@@ -20,6 +20,7 @@ class Order extends Model
         'card_number',
         'month_expiration',
         'year_expiration',
+        'cvv',
     ];
 
     public function user(): BelongsTo
