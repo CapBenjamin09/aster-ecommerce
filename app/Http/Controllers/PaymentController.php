@@ -9,6 +9,8 @@ use App\Models\Product;
 use Carbon\Carbon;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
+
 
 class PaymentController extends Controller
 {
@@ -43,12 +45,16 @@ class PaymentController extends Controller
         }
         Cart::destroy();
 
-        return redirect()->route('cart.index');
+        return redirect()->route('payment.orderCompletion');
     }
 
     public function orderCompletion(){
 
-        return view ('client.payment.orderCompletion');
+        $order = Order::all()->last();
+        $dato = OrderDetail::where('order_id', $order->id);
 
+        dd($dato);
+
+        //return view ('client.payment.orderCompletion');
     }
 }
