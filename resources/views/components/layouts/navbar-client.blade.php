@@ -89,7 +89,7 @@
                 @auth
             <a
                 class="mr-4 text-white transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none [&.active]:text-black/90"
-                href="#">
+                href="{{ route('cart.index') }}">
         <span class="[&>svg]:w-5">
           <svg
               xmlns="http://www.w3.org/2000/svg"

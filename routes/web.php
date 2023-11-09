@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\ShoppingCartController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
@@ -48,8 +49,12 @@ Route::middleware(['auth', 'admin'])->group( function () {
     Route::get('/clients', [ClientController::class, 'index'])->name('client.index');
 });
 
-Route::middleware(['auth', 'client'])->group( function () {
-    Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::middleware( 'client')->group( function () {
+    Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::get('/home/{category}/category', [HomeController::class, 'showCategory'])->name('home.category');
     Route::get('/home/{product}/product', [HomeController::class, 'showProduct'])->name('home.product');
+
+    Route::get('/cart', [ShoppingCartController::class, 'index'])->name('cart.index');
+    Route::post('/cart-add', [ShoppingCartController::class, 'addItem'])->name('cart.add');
+    Route::post('/cart-remove', [ShoppingCartController::class, 'removeItem'])->name('cart.remove');
 });

@@ -1,26 +1,4 @@
 <x-layouts.client-layout title="{{ $product->name }}">
-    <!--
-  This example requires some changes to your config:
-
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    theme: {
-      extend: {
-        gridTemplateRows: {
-          '[auto,auto,1fr]': 'auto auto 1fr',
-        },
-      },
-    },
-    plugins: [
-      // ...
-      require('@tailwindcss/aspect-ratio'),
-    ],
-  }
-  ```
--->
-
     <div class="justify-center mx-auto">
 
         <nav aria-label="Breadcrumb">
@@ -93,7 +71,8 @@
                         </div>
                     </div>
 
-                    <form class="mt-10">
+                    <form class="mt-10" action="{{ route('cart.add') }}" method="post">
+                        @csrf
                         <!-- Colors -->
                         <div>
                             <h3 class="text-sm font-medium text-gray-900">Cantidad de artículos disponibles</h3>
@@ -110,10 +89,19 @@
 
                                 </div>
                             </fieldset>
-                        </div>
 
+                        </div>
+                        <div class="mt-5">
+                            <label for="quantity" class="block text-sm font-medium text-gray-700">Cantidad</label>
+                            <input type="number" id="quantity" name="quantity" class="w-16 border rounded p-2 text-center" value="1">
+                            @error('quantity')
+                                <x-error-alert title="Error">
+                                    {{ $message }}
+                                </x-error-alert>
+                            @enderror
+                        </div>
                         <!-- Sizes -->
-                        <div class="mt-10">
+                        <div class="mt-5">
                             <div class="flex items-center justify-between">
                                 <a href="#" class="ml-2 text-sm font-medium text-yellow-600 hover:text-yellow-500">Detalle</a>
                             </div>
@@ -121,19 +109,23 @@
                             <fieldset class="mt-4">
                                 <legend class="sr-only">Choose a size</legend>
                                     <!-- Active: "ring-2 ring-indigo-500" -->
-                                    <label class="px-2 group relative flex items-center justify-center py-3 text-sm font-light sm:flex-1 sm:py-6">
+                                    <label class="px-2 group relative flex items-center py-3 text-sm font-light sm:flex-1 sm:py-6">
                                             {{ $product->detail }}
                                     </label>
                             </fieldset>
                         </div>
-
-                        <button type="submit" class="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-yellow-500 px-8 py-3 text-base font-medium text-gray-800 hover:bg-yellow-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="mr-2 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-                            </svg>
-                            Add to bag</button>
-                    </form>
+                            <input type="hidden" id="product_id" name="product_id" value="{{ $product->id }}" >
+                            <input type="hidden" id="product_stock" name="product_stock" value="{{ $product->stock }}" >
+                            <input type="hidden" id="product_image" name="product_image" value="{{ $product->image_path }}" >
+                            <button type="submit" class="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-yellow-500 px-8 py-3 text-base font-medium text-gray-800 hover:bg-yellow-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="mr-2 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                </svg>
+                                Add to bag
+                            </button>
+                        </form>
                 </div>
+
 
 
                 <div class="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8 lg:pt-6">
