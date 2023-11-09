@@ -121,62 +121,10 @@
                             openModalButton.addEventListener('click', openModal);
                             closeModalButton.addEventListener('click', closeModal);
                         </script>
-                        {{--    MODAL 1 - FIN--}}
-
-                        <button id="openModal2" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                            Abrir Modal
-                        </button>
                     </div>
 
-                    <div id="myModal2" class="hidden fixed z-10 inset-0 overflow-y-auto">
-                        <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-                            <div class="fixed inset-0 transition-opacity" aria-hidden="true">
-                                <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
-                            </div>
-                            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
-                            <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-4xl sm:w-full">
-                                <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-                                    <!-- Contenido del modal -->
-                                    <div>
-                                        <h3 class="text-lg font-medium leading-6 text-gray-900">Mi Modal</h3>
-                                        <div class="mt-2">
-                                            <p class="text-sm text-gray-500">
-                                                Aquí puedes agregar cualquier contenido que desees mostrar en el modal.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-                                    <button id="closeModal2" class="w-full inline-flex justify-center rounded-md border border-transparent bg-blue-500 text-white hover:bg-blue-700 px-4 py-2 focus:outline-none focus:border-blue-700 focus:shadow-outline-blue sm:text-sm sm:leading-5">
-                                        Cerrar
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
-                    <script>
-                        // Obtener referencias a los botones y el modal
-                        const openModalButton2 = document.getElementById('openModal2');
-                        const closeModalButton2 = document.getElementById('closeModal2');
-                        const modal2 = document.getElementById('myModal2');
-
-                        // Funciones para abrir y cerrar el modal
-                        function openModal2() {
-                            modal2.classList.remove('hidden');
-                        }
-
-                        function closeModal2() {
-                            modal2.classList.add('hidden');
-                        }
-
-                        // Asignar eventos a los botones
-                        openModalButton2.addEventListener('click', openModal2);
-                        closeModalButton2.addEventListener('click', closeModal2);
-                    </script>
-                    </div>
-
-                    <a href="#" class="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500">Sobre nosotros</a>
+                    <a target="_blank" href="https://www.canva.com/design/DAFztSSJD7I/view" class="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500">Sobre nosotros</a>
                     <a href="#" class="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500">Información sobre envíos</a>
                 </div>
             </div>
