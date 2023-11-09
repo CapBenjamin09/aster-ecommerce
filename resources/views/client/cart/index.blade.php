@@ -9,10 +9,20 @@
             <div class="bg-white p-6 rounded-lg shadow-md mb-6 px-10">
                 <div class="flex items-center mb-4">
                     <img src="{{ asset($row->options->image) }}" alt="Producto" class="w-20 h-20 object-cover rounded">
+
                     <div class="ml-6 flex-grow">
                         <h2 class="text-xl font-bold">{{ $row->name }}</h2>
                         <p class="text-gray-600">Precio: Q.{{ $row->price }}</p>
                     </div>
+                    <form action="{{ route('cart.remove') }}" method="post">
+                        @csrf
+                        <input type="hidden" id="rowId" name="rowId" value="{{ $row->rowId }}" >
+                        <button class="text-red-500 font-bold px-5">
+                            <svg class="w-6 h-6 text-red-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h16M7 8v8m4-8v8M7 1h4a1 1 0 0 1 1 1v3H6V2a1 1 0 0 1 1-1ZM3 5h12v13a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V5Z"/>
+                            </svg>
+                        </button>
+                    </form>
                     <div class="flex items-center justify-end">
                     </div>
                 </div>
@@ -27,6 +37,7 @@
                     </div>
                 </div>
             </div>
+
             @endforeach
             <!-- Repetir el bloque para otros productos si es necesario -->
 
@@ -42,15 +53,6 @@
                 <a  href="{{ route('payment.index') }}" class="hover:text-gray-400 text-gray-800 font-bold py-3 justify-between">
                     Pagar</a>
 
-                    <form action="{{ route('cart.remove') }}" method="post">
-                        @csrf
-                        <input type="hidden" id="rowId" name="rowId" value="{{ $row->rowId }}" >
-                        <button class="text-red-500 font-bold px-5">
-                            <svg class="w-6 h-6 text-red-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h16M7 8v8m4-8v8M7 1h4a1 1 0 0 1 1 1v3H6V2a1 1 0 0 1 1-1ZM3 5h12v13a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V5Z"/>
-                            </svg>
-                        </button>
-                    </form>
                 </div>
 
                 </div>

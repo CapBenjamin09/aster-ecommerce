@@ -3,43 +3,190 @@
     <div class="container px-6 py-12 mx-auto">
         <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-y-10 lg:grid-cols-4">
             <div class="sm:col-span-2">
-                <h1 class="max-w-lg text-xl font-semibold tracking-tight text-gray-800 xl:text-2xl dark:text-white">Subscribe our newsletter to get update.</h1>
+                <h1 class="max-w-lg text-xl font-semibold tracking-tight text-gray-800 xl:text-2xl dark:text-white">Compra productos de nuestra tienda </h1>
 
                 <div class="flex flex-col mx-auto mt-6 space-y-3 md:space-y-0 md:flex-row">
-                    <input id="email" type="text" class="px-4 py-2 text-gray-700 bg-white border rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-opacity-40 focus:ring-blue-300" placeholder="Email Address">
+                    <label id="email" type="text" class="px-4 py-2 text-gray-700 bg-white border rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-opacity-40 focus:ring-blue-300" placeholder="Email Address">
+                    Inicia sesión en el sitio
+                    </label>
 
-                    <button class="w-full px-6 py-2.5 text-sm font-medium tracking-wider text-white transition-colors duration-300 transform md:w-auto md:mx-4 focus:outline-none bg-gray-800 rounded-lg hover:bg-gray-700 focus:ring focus:ring-gray-300 focus:ring-opacity-80">
-                        Subscribe
+                    <a href="{{ route('session.index') }}" class="w-full px-6 py-2.5 text-sm font-medium tracking-wider text-white transition-colors duration-300 transform md:w-auto md:mx-4 focus:outline-none bg-gray-800 rounded-lg hover:bg-gray-700 focus:ring focus:ring-gray-300 focus:ring-opacity-80">
+                        INGRESAR
+                    </a>
+                </div>
+            </div>
+
+            <div>
+                <p class="font-semibold text-gray-800">Páginas</p>
+
+                <div class="flex flex-col items-start mt-5 space-y-2">
+                    <a href="{{ route('home') }}" class="text-gray-600 transition-colors duration-300 dark:text-gray-300  hover:underline hover:text-blue-500">Inicio</a>
+                    <a href="{{ route('register.index') }}" class="text-gray-600 transition-colors duration-300 dark:text-gray-300  hover:underline hover:text-blue-500">Registrarse</a>
+                    <a href="{{ route('cart.index') }}" class="text-gray-600 transition-colors duration-300 dark:text-gray-300  hover:underline hover:text-blue-500">Mis productos</a>
+                </div>
+            </div>
+
+            <div>
+                <p class="font-semibold text-gray-800 dark:text-white">Utilidades</p>
+
+                <div class="flex flex-col items-start mt-5 space-y-2">
+                    {{--    MODAL 1 - INICIO--}}
+                    <button id="openModal" class="text-gray-600 transition-colors duration-300 hover:underline hover:text-blue-500">
+                        Cómo comprar en ASTER
                     </button>
-                </div>
-            </div>
 
-            <div>
-                <p class="font-semibold text-gray-800 dark:text-white">Quick Link</p>
+                    <div id="myModal" class="hidden fixed z-10 inset-0 overflow-y-auto">
+                        <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+                            <div class="fixed inset-0 transition-opacity" aria-hidden="true">
+                                <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+                            </div>
+                            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+                            <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all my-8 max-w-4xl">
+                                <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                                    <!-- Contenido del modal -->
+                                    <div>
+                                        <h3 class="text-lg font-medium leading-6 text-gray-900 justify-center flex">Como comprar en ASTER</h3>
+                                        <div class="mt-10">
+                                            <p class="text-sm text-gray-500">
 
-                <div class="flex flex-col items-start mt-5 space-y-2">
-                    <a href="#" class="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500">Home</a>
-                    <a href="#" class="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500">Who We Are</a>
-                    <a href="#" class="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500">Our Philosophy</a>
-                </div>
-            </div>
+                                            <p class="text-orange-500 text-5xl mb-5">DATOS</p>
 
-            <div>
-                <p class="font-semibold text-gray-800 dark:text-white">Industries</p>
 
-                <div class="flex flex-col items-start mt-5 space-y-2">
-                    <a href="#" class="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500">Retail & E-Commerce</a>
-                    <a href="#" class="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500">Information Technology</a>
-                    <a href="#" class="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500">Finance & Insurance</a>
+                                            <p class="mb-3 text-gray-500 dark:text-gray-400">
+
+                                                **Paso 1: Acceder al Sitio Web**
+                                                Ingresa a la página web de Aster a través de tu navegador. Puedes acceder escribiendo "aster.com" en la barra de direcciones.
+
+                                                <br><br>
+                                                **Paso 2: Explorar los Productos**
+                                                Una vez en la página principal, navega a través de las diversas categorías de productos disponibles. Aster vende una amplia variedad de artículos que incluyen ropa, electrónicos, artículos para el hogar, juguetes, entre otros. Explora las secciones o usa la barra de búsqueda para encontrar lo que necesitas.
+
+                                                <br><br>
+                                                **Paso 3: Seleccionar Productos**
+                                                Haz clic en el artículo que te interese para ver más detalles. Revisa la descripción del producto, imágenes, precios y otras opciones disponibles como tallas, colores, etc.
+
+                                                <br><br>
+                                                **Paso 4: Añadir al Carrito**
+                                                Una vez que hayas elegido un producto, selecciona la cantidad que deseas y luego presiona el botón "Agregar al carrito" o un botón similar. El producto se agregará a tu carrito de compras.
+
+                                                <br><br>
+                                                **Paso 5: Revisar el Carrito**
+                                                Dirígete al carrito de compras para revisar los productos que has seleccionado. Aquí podrás verificar las cantidades, los precios y realizar modificaciones si es necesario.
+
+                                                <br><br>
+                                                **Paso 6: Proceder al Pago**
+                                                Cuando estés listo para realizar la compra, haz clic en "Proceder al pago". Serás redirigido a la página de pago donde podrás ingresar la información de envío y de pago. Proporciona tu dirección de entrega y selecciona el método de pago (tarjeta de crédito, PayPal, etc.).
+
+                                                <br><br>
+                                                **Paso 7: Revisar y Confirmar la Compra**
+                                                Antes de finalizar la compra, revisa todos los detalles de la orden: productos, cantidades, precios, dirección de envío y cualquier costo adicional. Una vez que estés seguro, confirma la compra.
+
+                                                <br><br>
+                                                **Paso 8: Confirmación de la Orden**
+                                                Después de completar la transacción, recibirás una confirmación de la orden en pantalla. Además, recibirás un correo electrónico con los detalles de la compra y la confirmación del pedido.
+
+                                                <br><br>
+                                                **Paso 9: Seguimiento del Pedido**
+                                                Aster proporcionará un número de seguimiento para que puedas rastrear tu pedido. Podrás utilizar este número para monitorear el estado de la entrega hasta que tus artículos lleguen a tu domicilio.
+
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                                    <button id="closeModal" class="font-semibold w-full inline-flex justify-center rounded-md border border-transparent bg-yellow-500 text-black hover:bg-yellow-200 px-4 py-2 focus:outline-none focus:border-blue-700 focus:shadow-outline-blue sm:text-sm sm:leading-5">
+                                        Cerrar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <script>
+                            // Obtener referencias a los botones y el modal
+                            const openModalButton = document.getElementById('openModal');
+                            const closeModalButton = document.getElementById('closeModal');
+                            const modal = document.getElementById('myModal');
+
+                            // Funciones para abrir y cerrar el modal
+                            function openModal() {
+                                modal.classList.remove('hidden');
+                            }
+
+                            function closeModal() {
+                                modal.classList.add('hidden');
+                            }
+
+                            // Asignar eventos a los botones
+                            openModalButton.addEventListener('click', openModal);
+                            closeModalButton.addEventListener('click', closeModal);
+                        </script>
+                        {{--    MODAL 1 - FIN--}}
+
+                        <button id="openModal2" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                            Abrir Modal
+                        </button>
+                    </div>
+
+                    <div id="myModal2" class="hidden fixed z-10 inset-0 overflow-y-auto">
+                        <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+                            <div class="fixed inset-0 transition-opacity" aria-hidden="true">
+                                <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+                            </div>
+                            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+                            <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-4xl sm:w-full">
+                                <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                                    <!-- Contenido del modal -->
+                                    <div>
+                                        <h3 class="text-lg font-medium leading-6 text-gray-900">Mi Modal</h3>
+                                        <div class="mt-2">
+                                            <p class="text-sm text-gray-500">
+                                                Aquí puedes agregar cualquier contenido que desees mostrar en el modal.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                                    <button id="closeModal2" class="w-full inline-flex justify-center rounded-md border border-transparent bg-blue-500 text-white hover:bg-blue-700 px-4 py-2 focus:outline-none focus:border-blue-700 focus:shadow-outline-blue sm:text-sm sm:leading-5">
+                                        Cerrar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <script>
+                        // Obtener referencias a los botones y el modal
+                        const openModalButton2 = document.getElementById('openModal2');
+                        const closeModalButton2 = document.getElementById('closeModal2');
+                        const modal2 = document.getElementById('myModal2');
+
+                        // Funciones para abrir y cerrar el modal
+                        function openModal2() {
+                            modal2.classList.remove('hidden');
+                        }
+
+                        function closeModal2() {
+                            modal2.classList.add('hidden');
+                        }
+
+                        // Asignar eventos a los botones
+                        openModalButton2.addEventListener('click', openModal2);
+                        closeModalButton2.addEventListener('click', closeModal2);
+                    </script>
+                    </div>
+
+                    <a href="#" class="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500">Sobre nosotros</a>
+                    <a href="#" class="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500">Información sobre envíos</a>
                 </div>
             </div>
         </div>
 
         <hr class="my-6 border-gray-200 md:my-8 dark:border-gray-700">
 
-        <div class="flex items-center justify-between">
+        <div class="flex items-center justify-between px-10 py-3 mb-2">
             <a href="#">
-                <img class="w-auto h-7" src="https://merakiui.com/images/full-logo.svg" alt="">
+                <img class="w-auto h-7" src="{{ asset('img/ASTER.png') }}" alt="">
             </a>
 
             <div class="flex -mx-2">
@@ -72,4 +219,8 @@
             </div>
         </div>
     </div>
+
+
+
+
 </footer>

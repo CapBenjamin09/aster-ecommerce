@@ -34,7 +34,7 @@
             <!-- Logo -->
             <a
                 class="flex justify-center items-center mb-2 w-20 h-auto text-neutral-900 hover:text-neutral-900 focus:text-neutral-900 lg:mb-0 lg:mt-0"
-                href="#">
+                href="{{ route('home') }}">
                 <img
                     src="{{ asset('img/navbar-client.png') }}"
                     style="height: 40px"
