@@ -67,6 +67,7 @@ Route::middleware(['auth', 'client'])->group( function () {
     Route::get('/payment', [PaymentController::class, 'index'])->name('payment.index');
     Route::post('/payment', [PaymentController::class, 'store'])->name('payment.store');
     Route::get('/order-completion', [PaymentController::class, 'orderCompletion'])->name('payment.orderCompletion');
+    Route::post('/order-completion/download-pdf', [PaymentController::class, 'pdfDownload'])->name('payment.download');
 });
 
 require __DIR__.'/auth.php';

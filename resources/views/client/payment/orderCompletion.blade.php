@@ -3,14 +3,14 @@
 
     <div class="max-w-xl mx-auto bg-white p-8 shadow-md rounded-md mt-10 border border-gray-600">
         <div class="text-center mb-4">
-            <p class="tracking-tight text-gray-500 md:text-lg mb-1">Hola Sherelyn Tirado</p>
-            <h1 class="text-3xl font-bold text-gray-800">Pedido entregado!</h1>
-            <p class="text-sm text-gray-600 mb-5">Fecha: 08 de noviembre de 2023</p>
+            <p class="tracking-tight text-gray-500 md:text-lg mb-1">Hola, detallamos tu pedido</p>
+            <h1 class="text-3xl font-bold text-gray-800">Pedido realizado!</h1>
+            <p class="text-sm text-gray-600 mb-5">Fecha: {{ $order->date }}</p>
         </div>
 
         <div class="mb-4">
 
-            <h1 class="font-semibold text-gray-800 px-2">Pedido:</h1>
+            <h1 class="font-semibold text-gray-800 px-2">Pedido: {{ $order->id }}</h1>
 
             <table class="default">
                 <tr class="border-b border-gray-300 py-2 grid grid-cols-4 gap-4">
@@ -18,15 +18,17 @@
                     <td class="font-bold text-gray-600 px-2">Cantidad</td>
                     <td class="font-bold text-gray-600 px-2">Precio</td>
                 </tr>
+                @foreach($datos as $dato)
                 <tr class=" py-2 grid grid-cols-4 gap-4">
-                    <td class="text-gray-600 px-2 col-span-2">Producto 1</td>
-                    <td class="text-gray-600 px-2">2</td>
-                    <td class="text-gray-600 px-2">$20.00</td>
+                    <td class="text-gray-600 px-2 col-span-2">{{ $dato->product->name }}</td>
+                    <td class="text-gray-600 px-2">{{ $dato->quantity }}</td>
+                    <td class="text-gray-600 px-2">Q.{{ $dato->quantity * $dato->product->price }}</td>
                 </tr>
+                @endforeach
 
                 <tr class="border-t border-gray-300 py-1 grid grid-rows-4 grid-flow-col gap-4 justify-center">
                     <td class="text-gray-900 px-2 mt-10">Total:</td>
-                    <td class="text-gray-600 px-2 mt-10">$70.00</td>
+                    <td class="text-gray-600 px-2 mt-10">Q.{{ $total }}</td>
                 </tr>
 
             </table>
@@ -44,7 +46,18 @@
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
             </svg>
-            <span class="text-gray-600">Número de pedido: #12345</span>
+            <span class="text-gray-600">Número de pedido: {{ $order->id }}</span>
+        </div>
+        <div class="grid col-span-3">
+            <div class="justify-start grid">
+                <a href="{{ route('home') }}" class="hover:text-gray-400 text-blue-800 font-bold py-3 justify-between">Regresar</a>
+            </div>
+            <div class="col-start-3">
+                <form action="{{ route('payment.download') }}" method="post">
+                    @csrf
+                    <button class="hover:text-gray-400 text-gray-800 font-bold py-3 justify-between">Descargar en PDF</button>
+                </form>
+            </div>
         </div>
     </div>
 
