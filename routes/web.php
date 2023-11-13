@@ -5,6 +5,7 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\LogoutController;
@@ -67,6 +68,12 @@ Route::middleware(['auth', 'client'])->group( function () {
     Route::get('/payment', [PaymentController::class, 'index'])->name('payment.index');
     Route::post('/payment', [PaymentController::class, 'store'])->name('payment.store');
     Route::get('/order-completion', [PaymentController::class, 'orderCompletion'])->name('payment.orderCompletion');
+    Route::get('/profile/{user}', [ProfileController::class, 'index'])->name('profile.index');
+    Route::patch('/profile/{user}', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile/{user}/destroy', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/profile/{user}/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+
+
 });
 
 require __DIR__.'/auth.php';

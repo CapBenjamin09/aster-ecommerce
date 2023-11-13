@@ -10,7 +10,7 @@
                     INICIO
                     -->
                     <div class="pointer-events-auto w-screen max-w-md mt-10 overflow-y-scroll flex-nowrap h-[600px]">
-                        <div class="flex flex-col bg-white shadow-xl">
+                        <div class="flex flex-col bg-white shadow-sm">
                             <div class="flex-1 px-4 py-6 sm:px-6">
                                 <div class="flex items-start justify-between">
                                     <h2 class="text-lg font-medium text-gray-900" id="slide-over-title">Resumen del

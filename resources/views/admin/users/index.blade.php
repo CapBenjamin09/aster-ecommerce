@@ -68,7 +68,7 @@
                     {{$user->role}}
                 </td>
                 <td class="px-10 py-4">
-                    <a href="{{ route('users.edit', $user) }}" class="font-medium text-blue-600 hover:underline">Edit</a>
+                    <a href="{{ route('profile.edit', $user) }}" class="font-medium text-blue-600 hover:underline">Edit</a>
                     &nbsp;
 
                     <form method="POST" action="{{route('users.destroy', $user)}}" class="inline-flex">
