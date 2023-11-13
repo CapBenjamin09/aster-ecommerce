@@ -68,6 +68,7 @@ Route::middleware(['auth', 'client'])->group( function () {
     Route::get('/payment', [PaymentController::class, 'index'])->name('payment.index');
     Route::post('/payment', [PaymentController::class, 'store'])->name('payment.store');
     Route::get('/order-completion', [PaymentController::class, 'orderCompletion'])->name('payment.orderCompletion');
+    Route::post('/order-completion/download-pdf', [PaymentController::class, 'pdfDownload'])->name('payment.download');
     Route::get('/profile/{user}', [ProfileController::class, 'index'])->name('profile.index');
     Route::patch('/profile/{user}', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile/{user}/destroy', [ProfileController::class, 'destroy'])->name('profile.destroy');
