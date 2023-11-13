@@ -11,7 +11,7 @@
 <body>
 <div class="max-w-xl mx-auto bg-white p-8 shadow-md rounded-md mt-10 border border-gray-600">
     <div class="text-center mb-4">
-        <p class="tracking-tight text-gray-500 md:text-lg mb-1">Hola, detallamos tu pedido</p>
+        <p class="tracking-tight text-gray-500 md:text-lg mb-1">Hola, {{ $user }}</p>
         <h1 class="text-3xl font-bold text-gray-800">Pedido realizado!</h1>
         <p class="text-sm text-gray-600 mb-5">Fecha: {{ $order->date }}</p>
     </div>
@@ -22,7 +22,7 @@
 
         <table class="default">
             <tr class="border-b border-gray-300 py-2 grid grid-cols-4 gap-4">
-                <td class="font-bold text-gray-600 px-2 col-span-2">Descripción del producto</td>
+                <td class="font-bold text-gray-600 px-2 col-span-2">Producto</td>
                 <td class="font-bold text-gray-600 px-2">Cantidad</td>
                 <td class="font-bold text-gray-600 px-2">Precio</td>
             </tr>

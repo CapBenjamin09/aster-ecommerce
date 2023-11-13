@@ -3,7 +3,7 @@
 
     <div class="max-w-xl mx-auto bg-white p-8 shadow-md rounded-md mt-10 border border-gray-600">
         <div class="text-center mb-4">
-            <p class="tracking-tight text-gray-500 md:text-lg mb-1">Hola, detallamos tu pedido</p>
+            <p class="tracking-tight text-gray-500 md:text-lg mb-1">Hola, {{ auth()->user()->name }}</p>
             <h1 class="text-3xl font-bold text-gray-800">Pedido realizado!</h1>
             <p class="text-sm text-gray-600 mb-5">Fecha: {{ $order->date }}</p>
         </div>
@@ -27,8 +27,7 @@
                 @endforeach
 
                 <tr class="border-t border-gray-300 py-1 grid grid-rows-4 grid-flow-col gap-4 justify-center">
-                    <td class="text-gray-900 px-2 mt-10">Total:</td>
-                    <td class="text-gray-600 px-2 mt-10">Q.{{ $total }}</td>
+                    <td class="text-gray-900 px-2 mt-10">Total: Q.{{ $total }}</td>
                 </tr>
 
             </table>
@@ -36,7 +35,7 @@
 
         <div class="mb-4">
 
-            <p class="mt-10 text-gray-800 font-bold whitespace-pre-line text-start">Detalles de facturación</p>
+            <p class="text-gray-800 font-bold whitespace-pre-line text-start">Detalles de facturación</p>
             <p class="text-gray-500 whitespace-pre-line text-start">Nit: C/F</p>
 
             <p class="text-sm text-center text-gray-600 mt-5">Gracias por su compra.</p>
