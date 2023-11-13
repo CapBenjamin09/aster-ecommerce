@@ -9,11 +9,13 @@ use App\Models\Product;
 use Carbon\Carbon;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
-use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\DB;
+use PDF;
 
 
 class PaymentController extends Controller
 {
+
     public function index() {
         return view('client.payment.index');
     }
@@ -36,8 +38,8 @@ class PaymentController extends Controller
             'quantity' => $row->qty,
             'product_id' => $row->id,
         ]);
-
         $product = Product::find($row->id);
+//        $var = $row->id;
         $stock = $product->stock;
         $newStock = $stock - intval($row->qty);
         $product->stock = $newStock;
@@ -49,12 +51,27 @@ class PaymentController extends Controller
     }
 
     public function orderCompletion(){
+        $order = DB::table('orders')->where('user_id', '=', auth()->user()->id)->orderByDesc('id')->first();
+        $idOrder = $order->id;
+        $datos = OrderDetail::where('order_id', $idOrder)->get();
+        $total = 0;
+        foreach ($datos as $dato) {
+            $total += ($dato->quantity * $dato->product->price);
+        }
 
-        $order = Order::all()->last();
-        $dato = OrderDetail::where('order_id', $order->id);
+        return view ('client.payment.orderCompletion', compact('datos', 'order', 'total'));
+    }
 
-        dd($dato);
+    public function pdfDownload() {
+        $order = DB::table('orders')->where('user_id', '=', auth()->user()->id)->orderByDesc('id')->first();
+        $idOrder = $order->id;
+        $datos = OrderDetail::where('order_id', $idOrder)->get();
+        $total = 0;
+        foreach ($datos as $dato) {
+            $total += ($dato->quantity * $dato->product->price);
+        }
 
-        //return view ('client.payment.orderCompletion');
+        $pdf = PDF::loadView('client.payment.pdf', array('datos' => $datos, 'total' => $total, 'order' => $order, 'user' => auth()->user()->name));
+        return $pdf->download('AsterEcommerce.pdf');
     }
 }
