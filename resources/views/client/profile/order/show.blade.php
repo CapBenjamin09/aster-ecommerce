@@ -8,8 +8,10 @@
 
         <div class="mb-4">
 
-            <h1 class="font-semibold text-gray-800 px-2">Pedido: {{ $order->id }}</h1>
-            <h1 class="font-semibold text-right text-gray-800 px-2">Estado: {{ $order->status }}</h1>
+            <div class="py-4 grid grid-cols-2 gap-4">
+                <h1 class="font-semibold text-gray-800 px-2">Pedido: {{ $order->id }}</h1>
+                <h1 class="font-semibold text-right text-gray-800 px-2">Estado: {{ $order->status }}</h1>
+            </div>
 
             <table class="default">
                 <tr class="border-b border-gray-300 py-2 grid grid-cols-4 gap-4">
