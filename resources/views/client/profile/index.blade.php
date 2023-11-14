@@ -24,11 +24,9 @@
                 </dl>
             </div>
 
-
-
             <div class="">
-                <x-button type_button="primary" class="w-[62%] bg-sky-200">
-                    <a href=" {{ route('profile.edit', $users) }} ">Mis pedidos</a>
+                <x-button type_button="info" class="w-[62%] bg-sky-500">
+                    <a href=" {{ route('profileOrder.index', $users) }} ">Mis pedidos</a>
                 </x-button>
                 <br>
             <x-button type_button="primary">

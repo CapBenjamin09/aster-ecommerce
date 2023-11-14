@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProfileOrderController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\LogoutController;
@@ -69,11 +70,14 @@ Route::middleware(['auth', 'client'])->group( function () {
     Route::post('/payment', [PaymentController::class, 'store'])->name('payment.store');
     Route::get('/order-completion', [PaymentController::class, 'orderCompletion'])->name('payment.orderCompletion');
     Route::post('/order-completion/download-pdf', [PaymentController::class, 'pdfDownload'])->name('payment.download');
+
     Route::get('/profile/{user}', [ProfileController::class, 'index'])->name('profile.index');
     Route::patch('/profile/{user}', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile/{user}/destroy', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/profile/{user}/edit', [ProfileController::class, 'edit'])->name('profile.edit');
 
+    Route::get('/profile/{user}/order', [ProfileOrderController::class, 'index'])->name('profileOrder.index');
+    Route::get('/profile/order/{order}', [ProfileOrderController::class, 'show'])->name('profileOrder.show');
 
 });
 
