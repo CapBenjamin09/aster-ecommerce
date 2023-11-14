@@ -17,6 +17,7 @@
                     </svg>
                     <span class="ml-3">Dashboard</span>
                 </a>
+                <hr class="h-px w-full bg-gray-200 border-0">
             </li>
             <li>
 
@@ -31,13 +32,13 @@
                 </button>
                 <ul id="dropdown-example" class="hidden py-2 space-y-2">
                     <li>
-                        <a href="#" class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-gray-800 ">Products</a>
+                        <a href="{{ route('management.index') }}" class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-gray-800 ">Payments</a>
                     </li>
                     <li>
-                        <a href="#" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-800 ">Billing</a>
+                        <a href="#" class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-gray-800 ">Billing</a>
                     </li>
                     <li>
-                        <a href="#" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-800 ">Invoice</a>
+                        <a href="#" class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-gray-800 ">Invoice</a>
                     </li>
                 </ul>
             </li>
@@ -97,4 +98,17 @@
         </ul>
     </div>
 </aside>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var ecommerceButton = document.querySelector('[data-collapse-toggle="dropdown-example"]');
+        var ecommerceDropdown = document.getElementById('dropdown-example');
+
+        ecommerceButton.addEventListener('click', function () {
+            ecommerceDropdown.classList.toggle('hidden');
+        });
+    });
+</script>
+
 

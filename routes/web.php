@@ -4,6 +4,7 @@
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ManagementController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
@@ -47,6 +48,8 @@ Route::middleware(['auth', 'admin'])->group( function () {
     Route::resource('/product', ProductController::class);
     //CRUD USUARIOS - ADMINISTRADOR
     Route::resource('/users', UserController::class);
+    //CRUD GESTION DE PEDIDOS - ADMINISTRADOR
+    Route::resource('/management', ManagementController::class);
     //INDEX CLIENTES - ADMINISTRADOR
     Route::get('/clients', [ClientController::class, 'index'])->name('client.index');
 });

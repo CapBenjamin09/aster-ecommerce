@@ -39,7 +39,6 @@ class PaymentController extends Controller
             'product_id' => $row->id,
         ]);
         $product = Product::find($row->id);
-//        $var = $row->id;
         $stock = $product->stock;
         $newStock = $stock - intval($row->qty);
         $product->stock = $newStock;
