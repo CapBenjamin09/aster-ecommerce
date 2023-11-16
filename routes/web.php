@@ -11,6 +11,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\ShoppingCartController;
+use App\Http\Controllers\TrackerOrderController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
@@ -78,6 +79,9 @@ Route::middleware(['auth', 'client'])->group( function () {
 
     Route::get('/profile/{user}/order', [ProfileOrderController::class, 'index'])->name('profileOrder.index');
     Route::get('/profile/order/{order}', [ProfileOrderController::class, 'show'])->name('profileOrder.show');
+
+    Route::get('/tracker', [TrackerOrderController::class, 'index'])->name('tracker.index');
+    Route::get('/tracker/{order}/order', [TrackerOrderController::class, 'show'])->name('tracker.show');
 
 });
 
