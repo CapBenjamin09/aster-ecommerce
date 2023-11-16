@@ -9,6 +9,7 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProfileOrderController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\SalesController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\ShoppingCartController;
@@ -30,6 +31,8 @@ use Illuminate\Support\Facades\Route;
 */
 //LOGOUT
 Route::post('/logout', [LogoutController::class, 'store'])->name('logout');
+
+
 
 Route::middleware('guest')->group( function () {
     //RUTEO DE REGISTRO - CLIENTES
@@ -54,6 +57,8 @@ Route::middleware(['auth', 'admin'])->group( function () {
     Route::resource('/management', ManagementController::class);
     //INDEX CLIENTES - ADMINISTRADOR
     Route::get('/clients', [ClientController::class, 'index'])->name('client.index');
+
+    Route::get('/sales', [SalesController::class, 'index'])->name('sales.index');
 });
 
 Route::middleware( 'client')->group( function () {
@@ -65,7 +70,6 @@ Route::middleware( 'client')->group( function () {
     Route::get('/cart', [ShoppingCartController::class, 'index'])->name('cart.index');
     Route::post('/cart-add', [ShoppingCartController::class, 'addItem'])->name('cart.add');
     Route::post('/cart-remove', [ShoppingCartController::class, 'removeItem'])->name('cart.remove');
-
 
 });
 
