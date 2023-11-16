@@ -62,9 +62,9 @@
 
                  <p class="mb-3 font-normal text-gray-700">Total de pedidos</p>
                  <div class="flex">
-                     <p class="w-20 mb-3 font-normal rounded-2xl bg-orange-200 text-orange-900 text-center"> 20 </p>
+                     <p class="w-20 mb-3 font-normal rounded-2xl bg-orange-200 text-orange-900 text-center">{{ $orders }}</p>
                  </div>
-                 <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-gray-800 bg-white rounded-lg hover:bg-yellow-100 focus:ring-4 focus:outline-none focus:ring-yellow-200">
+                 <a href="{{ route('management.index') }}" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-gray-800 bg-white rounded-lg hover:bg-yellow-100 focus:ring-4 focus:outline-none focus:ring-yellow-200">
                      Read more
                      <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
