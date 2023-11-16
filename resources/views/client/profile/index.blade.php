@@ -25,19 +25,19 @@
             </div>
 
             <div class="">
-                <x-button type_button="info" class="w-[62%] bg-sky-500">
+                <button type="submit" class="w-full mb-3 inline-block rounded-full border-2 border-info px-6 pb-[6px] pt-2 text-xs font-medium uppercase leading-normal text-info transition duration-150 ease-in-out hover:border-info-600 hover:bg-neutral-500 hover:bg-opacity-10 hover:text-info-600 focus:border-info-600 focus:text-info-600 focus:outline-none focus:ring-0 active:border-info-700 active:text-info-700">
                     <a href=" {{ route('profileOrder.index', $users) }} ">Mis pedidos</a>
-                </x-button>
+                </button>
                 <br>
-            <x-button type_button="primary">
+            <button type="submit" class=" flex justify-center mx-auto w-full mb-3 rounded-full border-2 border-warning px-6 pb-[6px] pt-2 text-xs font-medium uppercase leading-normal text-warning transition duration-150 ease-in-out hover:border-warning-600 hover:bg-neutral-500 hover:bg-opacity-10 hover:text-warning-600 focus:border-warning-600 focus:text-warning-600 focus:outline-none focus:ring-0 active:border-warning-700 active:text-warning-700">
                 <a href=" {{ route('profile.edit', $users) }} ">Editar perfil</a>
-            </x-button>
+            </button>
 
-                <form method="POST" action="{{route('profile.destroy', $users)}}" class="inline-flex" id="deleteForm">
+                <form method="POST" action="{{route('profile.destroy', $users)}}" class=" w-full" id="deleteForm">
                     @csrf
                     @method('DELETE')
 
-                    <x-button type_button="danger" onclick="confirmDelete()" class="bg-red-400">Eliminar perfil</x-button>
+                    <button type="submit"  onclick="confirmDelete()" class="w-full inline-block rounded-full border-2 border-danger px-6 pb-[6px] pt-2 text-xs font-medium uppercase leading-normal text-danger transition duration-150 ease-in-out hover:border-danger-600 hover:bg-neutral-500 hover:bg-opacity-10 hover:text-danger-600 focus:border-danger-600 focus:text-danger-600 focus:outline-none focus:ring-0 active:border-danger-700 active:text-danger-700">Eliminar perfil</button>
                 </form>
             </div>
 
@@ -51,8 +51,10 @@
 
     <script>
         function confirmDelete() {
-            var result = confirm("¿Estás seguro que deseas eliminar tu perfil? Al dar click perderá el registro de lo que ha realizado.");
+            var result = confirm("¿Estás seguro que deseas eliminar tu perfil? Al dar clic perderá el registro de lo que ha realizado.");
+
             if (result) {
+                // El usuario ha confirmado la eliminación
                 document.getElementById('deleteForm').submit();
             }
         }

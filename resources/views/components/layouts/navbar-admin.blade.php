@@ -35,10 +35,7 @@
                         <a href="{{ route('management.index') }}" class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-gray-800 ">Payments</a>
                     </li>
                     <li>
-                        <a href="#" class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-gray-800 ">Billing</a>
-                    </li>
-                    <li>
-                        <a href="#" class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-gray-800 ">Invoice</a>
+                        <a href="{{ route('sales.index') }}" class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-gray-800 ">Sales</a>
                     </li>
                 </ul>
             </li>
@@ -56,14 +53,6 @@
                         <path d="M17 5.923A1 1 0 0 0 16 5h-3V4a4 4 0 1 0-8 0v1H2a1 1 0 0 0-1 .923L.086 17.846A2 2 0 0 0 2.08 20h13.84a2 2 0 0 0 1.994-2.153L17 5.923ZM7 9a1 1 0 0 1-2 0V7h2v2Zm0-5a2 2 0 1 1 4 0v1H7V4Zm6 5a1 1 0 1 1-2 0V7h2v2Z"/>
                     </svg>
                     <span class="flex-1 ml-3 whitespace-nowrap">Products</span>
-                </a>
-            </li>
-            <li>
-                <a href="#" class="{{ request()->routeIs('') ? 'flex items-center p-2 text-white rounded-lg bg-gray-800 group' : 'flex items-center p-2 text-white rounded-lg hover:bg-gray-800 group' }}">
-                    <svg class="flex-shrink-0 w-5 h-5 text-white transition duration-75 group-hover:text-white " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="m17.418 3.623-.018-.008a6.713 6.713 0 0 0-2.4-.569V2h1a1 1 0 1 0 0-2h-2a1 1 0 0 0-1 1v2H9.89A6.977 6.977 0 0 1 12 8v5h-2V8A5 5 0 1 0 0 8v6a1 1 0 0 0 1 1h8v4a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-4h6a1 1 0 0 0 1-1V8a5 5 0 0 0-2.582-4.377ZM6 12H4a1 1 0 0 1 0-2h2a1 1 0 0 1 0 2Z"/>
-                    </svg>
-                    <span class="flex-1 ml-3 whitespace-nowrap">Inbox</span>
                 </a>
             </li>
             <li>

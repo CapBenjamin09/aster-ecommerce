@@ -32,14 +32,9 @@
             <div class="w-48 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg">
 
                 <button disabled type="button" class="w-full px-4 py-2 font-medium text-left bg-gray-100 rounded-b-lg cursor-not-allowed">
-                    Filtros
+                    Productos
                 </button>
-                <button type="button" class="w-full px-4 py-2 font-medium text-left border-b border-gray-200 cursor-pointer hover:bg-gray-100 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:text-blue-700">
-                    Settings
-                </button>
-                <button type="button" class="w-full px-4 py-2 font-medium text-left border-b border-gray-200 cursor-pointer hover:bg-gray-100 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:text-blue-700">
-                    Messages
-                </button>
+
                 <button type="button" class="w-full px-4 py-2 font-medium text-left border-b border-gray-200 cursor-pointer hover:bg-gray-100 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:text-blue-700">
                     Total de productos:<span class="inline-flex items-center justify-center px-2 ml-3 text-sm font-medium text-gray-100 bg-gray-400 rounded-full">
                         {{ $products->count() }} </span>

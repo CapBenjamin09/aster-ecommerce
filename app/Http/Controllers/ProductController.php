@@ -48,7 +48,7 @@ class ProductController extends Controller
         $data['image_path'] = 'products/'. $nameImage;
         Product::create($data);
 
-        return redirect()->route('admin.product.index');
+        return redirect()->route('product.index');
     }
 
     /**

@@ -31,14 +31,12 @@ class HomeController extends Controller
         return view('client.product', compact('product', 'categories'));
     }
 
-//    public function searchProduct(Request $request) {
-//        $search = trim($request->search);
-//        $products = Product::where('name', 'LIKE', '%' . $search . '%')->orderBy('name', 'asc');
-//
-//        dd($products);
-//        return $products;
-//        return view('client.search-product', compact('products', 'search'));
-//    }
+    public function searchProduct(Request $request) {
+        $search = trim($request->search);
+        $products = Product::where('name', 'LIKE', '%' . $search . '%')->orderBy('name', 'asc')->get();
+
+        return view('client.search-product', compact('products', 'search'));
+    }
 
 
 }

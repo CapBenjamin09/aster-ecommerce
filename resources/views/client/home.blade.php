@@ -5,7 +5,7 @@
 
         @include('client.components.search-and-categories')
 
-    <div class="flex-nowrap overflow-x-scroll scroll-smooth">
+    <div class="flex-nowrap scroll-smooth">
     <div
         id="direction-example"
         data-te-infinite-scroll-init
