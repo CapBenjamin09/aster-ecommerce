@@ -29,42 +29,133 @@
         <div class="mb-10">
             @if(isset($order))
                 <h1 class="text-center font-semibold text-2xl mb-5">DETALLE</h1>
+
+                <div class="flex items-start max-w-screen-lg mx-auto mb-4 pl-14">
+                    <div class="w-full">
+                        <div class="flex items-center w-full">
+                            @if($order->status == 'En Proceso' || $order->status == 'Enviado' || $order->status == 'Finalizado')
+                                <div class="w-8 h-8 shrink-0 mx-[-1px] p-1.5 flex items-center justify-center rounded-full bg-blue-600">
+                                    <span class="text-base text-white font-bold">1</span>
+                                </div>
+                            @else
+                                <div class="w-8 h-8 shrink-0 mx-[-1px] p-1.5 flex items-center justify-center rounded-full bg-gray-300">
+                                    <span class="text-base text-white font-bold">1</span>
+                                </div>
+                            @endif
+                            @if($order->status == 'Enviado' || $order->status == 'Finalizado')
+                                <div class="w-full h-1 mx-4 rounded-lg bg-blue-600"></div>
+                            @else
+
+                                <div class="w-full h-1 mx-4 rounded-lg bg-gray-300"></div>
+                            @endif
+                        </div>
+                        <div class="mt-2 mr-4">
+                            <h6 class="text-base font-bold text-blue-500">En proceso</h6>
+                            <p class="text-xs text-gray-400">
+                                @if($order->status == 'En Proceso' || $order->status == 'Enviado' || $order->status == 'Finalizado')
+                                    Completado
+                                @else
+                                    Pendiente
+                                @endif
+                            </p>
+                        </div>
+                    </div>
+                    <div class="w-full">
+                        <div class="flex items-center w-full">
+                            @if($order->status == 'Enviado' || $order->status == 'Finalizado')
+                                <div class="w-8 h-8 shrink-0 mx-[-1px] p-1.5 flex items-center justify-center rounded-full bg-blue-600">
+                                    <span class="text-base text-white font-bold">2</span>
+                                </div>
+                            @else
+                                <div class="w-8 h-8 shrink-0 mx-[-1px] p-1.5 flex items-center justify-center rounded-full bg-gray-300">
+                                    <span class="text-base text-white font-bold">2</span>
+                                </div>
+                            @endif
+                            @if($order->status == 'Finalizado')
+                                <div class="w-full h-1 mx-4 rounded-lg bg-blue-600"></div>
+                            @else
+
+                                <div class="w-full h-1 mx-4 rounded-lg bg-gray-300"></div>
+                            @endif
+                        </div>
+                        <div class="mt-2 mr-4">
+
+                            @if($order->status == 'Finalizado' || $order->status == 'Enviado')
+                                <h6 class="text-base font-bold text-blue-500">Enviado</h6>
+                            @else
+                                <h6 class="text-base font-bold text-gray-400">Enviado</h6>
+                            @endif
+
+                            <p class="text-xs text-gray-400">
+                                @if($order->status == 'Finalizado' || $order->status == 'Enviado')
+                                    Completado
+                                @else
+                                    Pendiente
+                                @endif
+                            </p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex items-center w-full">
+                            @if($order->status == 'Finalizado')
+                                <div class="w-8 h-8 shrink-0 mx-[-1px] p-1.5 flex items-center justify-center rounded-full bg-blue-600">
+                                    <span class="text-base text-white font-bold">3</span>
+                                </div>
+                            @else
+                                <div class="w-8 h-8 shrink-0 mx-[-1px] p-1.5 flex items-center justify-center rounded-full bg-gray-300">
+                                    <span class="text-base text-white font-bold">3</span>
+                                </div>
+                            @endif
+                        </div>
+                        <div class="mt-2 mr-4">
+                            @if($order->status == 'Finalizado')
+                                <h6 class="text-base font-bold text-blue-500">Finalizado</h6>
+                            @else
+                                <h6 class="text-base font-bold text-gray-400">Finalizado</h6>
+                            @endif
+                            <p class="text-xs text-gray-400">
+                                @if($order->status == 'Finalizado')
+                                    Completado
+                                @else
+                                    Pendiente
+                                @endif
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
                 <table class="w-full text-sm text-left text-gray-500">
                     <thead class="text-xs text-white uppercase bg-blue-950">
-                    <tr>
-                        <th scope="col" class="px-10 py-3">
-                            No. Orden
-                        </th>
-                        <th scope="col" class="px-10 py-3">
-                            Fecha
-                        </th>
-                        <th scope="col" class="px-10 py-3">
-                            Estado
-                        </th>
-                        <th scope="col" class="px-10 py-3">
-                            Acciones
-                        </th>
-
-                    </tr>
+                        <tr>
+                            <th scope="col" class="px-10 py-3">
+                                No. Orden
+                            </th>
+                            <th scope="col" class="px-10 py-3">
+                                Fecha
+                            </th>
+                            <th scope="col" class="px-10 py-3">
+                                Estado
+                            </th>
+                            <th scope="col" class="px-10 py-3">
+                                Acciones
+                            </th>
+                        </tr>
                     </thead>
                     <tbody>
-
-                    <tr class="bg-gray-100 divide-y divide-slate-200">
-                        <td class="px-10 py-4 font-medium text-gray-900 whitespace-nowrap">
-                            {{ $order->id }}
-                        </td>
-                        <td class="px-10 py-4">
-                            {{ $order->date }}
-                        </td>
-                        <td class="px-10 py-4">
-                            {{ $order->status }}
-                        </td>
-                        <td class="px-10 py-4">
-                            <a href="{{route('tracker.show', $order)}}" class="font-medium text-blue-600 hover:underline">Ver detalle</a>
-                        </td>
-
-                    </tr>
-
+                        <tr class="bg-gray-100 divide-y divide-slate-200">
+                            <td class="px-10 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                {{ $order->id }}
+                            </td>
+                            <td class="px-10 py-4">
+                                {{ $order->date }}
+                            </td>
+                            <td class="px-10 py-4">
+                                {{ $order->status }}
+                            </td>
+                            <td class="px-10 py-4">
+                                <a href="{{route('tracker.show', $order)}}" class="font-medium text-blue-600 hover:underline">Ver detalle</a>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             @endif
